@@ -1,0 +1,8 @@
+.container {
+    background: linear-gradient(
+            rgba(20,20,20, .85),
+            rgba(20,20,20, .85)),
+    url(./background.png);
+    height: 760px;
+    background-size:100% 100%;
+}
