@@ -125,7 +125,6 @@ export class AddressSearcher extends Component {
   render() {
     return (
       <div style={styles.wrapper}>
-        <div style={styles.text}>FIND YOUR VOTING AREA</div>
         <AsyncSelect
           cacheOptions
           defaultOptions

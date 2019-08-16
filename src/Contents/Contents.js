@@ -1,7 +1,7 @@
 import React from 'react';
 
 import './contents.css';
-import { AddressSearcher } from './AddressSearcher/AddressSearcher';
+import { AddressSearcher } from '../AddressSearcher';
 
 const styles = {
   mediumFont: {
@@ -29,13 +29,21 @@ const styles = {
   infoText: {
     fontWeight: 500,
     fontSize: '18px',
-    lineHeight: '30px'
+    lineHeight: '30px',
+    marginBottom: '60'
   },
   wrapper: {
     display: 'flex',
     justifyContent: 'space-evenly',
     alignItems: 'center',
     height: '100%'
+  },
+  findYour: {
+    color: 'white',
+    fontWeight: 'bold',
+    fontSize: '20px',
+    lineHeight: '45px',
+    marginTop: '42px'
   }
 };
 
@@ -64,6 +72,7 @@ export const Contents = () => {
         <WhoWillYouVoteFor />
         <div>
           <InfoText />
+          <div style={styles.findYour}>FIND YOUR VOTING AREA</div>
           <AddressSearcher />
         </div>
       </div>
