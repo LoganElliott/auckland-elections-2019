@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import AsyncSelect from 'react-select/async';
 import PropTypes from 'prop-types';
 
+import history from './history';
 import { AddressContext } from './AddressContext';
+import { getVotingInformation } from './getVotingInformation';
 
 const baseEndpoint = 'https://auck-elec.herokuapp.com';
 const apiEndpoint = `${baseEndpoint}/api`;
@@ -59,7 +61,7 @@ export class AddressSearcher extends Component {
   render() {
     return (
       <AddressContext.Consumer>
-        {({ updateAddress }) => (
+        {({ updateAddress, updateVotingInformation }) => (
           <div style={{ width: '344px' }}>
             <AsyncSelect
               cacheOptions
@@ -70,7 +72,18 @@ export class AddressSearcher extends Component {
               components={{ DropdownIndicator: () => null }}
               noOptionsMessage={() => null}
               loadOptions={this.promiseOptions}
-              onChange={updateAddress}
+              onChange={async value => {
+                updateAddress(value);
+                const votingInformation = await getVotingInformation(
+                  value.value
+                );
+                updateVotingInformation(votingInformation);
+                let query = `ward=${votingInformation.ward}&localBoard=${votingInformation.localBoard}`;
+                if (votingInformation.subdivision !== 'No sub in this area') {
+                  query = query.concat(`&${votingInformation.subdivision}`);
+                }
+                history.push(`/scores?${query}`);
+              }}
               onInputChange={newAddress =>
                 this.setState({ address: newAddress.label })
               }

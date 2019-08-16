@@ -4,11 +4,14 @@ import MenuItem from '@material-ui/core/MenuItem';
 import IconButton from '@material-ui/core/IconButton';
 import Icon from '@material-ui/core/Icon';
 
+import history from '../history';
+
 import { Colours } from '../Contants/Colours';
 
 import { ReactComponent as GzLogo } from './gz.svg';
 import { AddressSearcher } from '../AddressSearcher';
 import { AddressContext } from '../AddressContext';
+import { about, howWeScored, root } from '../Contants/routes';
 
 const styles = {
   wrapper: {
@@ -44,7 +47,8 @@ export const Header = () => {
     setAnchorEl(event.currentTarget);
   }
 
-  function handleClose() {
+  function handleClose(route) {
+    history.push(route);
     setAnchorEl(null);
   }
 
@@ -71,9 +75,11 @@ export const Header = () => {
               open={Boolean(anchorEl)}
               onClose={handleClose}
             >
-              <MenuItem onClick={handleClose}>Home</MenuItem>
-              <MenuItem onClick={handleClose}>How we scored</MenuItem>
-              <MenuItem onClick={handleClose}>About us</MenuItem>
+              <MenuItem onClick={() => handleClose(root)}>Home</MenuItem>
+              <MenuItem onClick={() => handleClose(howWeScored)}>
+                How we scored
+              </MenuItem>
+              <MenuItem onClick={() => handleClose(about)}>About us</MenuItem>
             </Menu>
           </div>
         );
