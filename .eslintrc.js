@@ -12,6 +12,7 @@ module.exports = {
     'react/jsx-filename-extension': ['warn', { extensions: ['.js', '.jsx'] }],
     'import/prefer-default-export': 0,
     'react/jsx-fragments': 0,
+    'react/destructuring-assignment': 0,
     'max-len': [
       'warn',
       {

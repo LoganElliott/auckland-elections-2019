@@ -49,7 +49,7 @@ const WhoWillYouVoteFor = () => (
 );
 
 const text =
-  "We asked candidates for council the same 14 questions on Transport, Housing and the Environment. We gave them points based on how well they answered and how they matched Generation Zero's vision for a liveable low-carbon Auckland";
+  "We asked candidates for council the same 14 questions on Transport, Housing and the Environment. We gave them points based on how well they answered and how they matched Generation Zero's vision for a liveable low-carbon Tāmaki Makaurau - Auckland";
 
 const InfoText = () => (
   <div style={styles.infoTextWrapper}>
@@ -62,9 +62,11 @@ export const Contents = () => {
     <div className="container">
       <div style={styles.wrapper}>
         <WhoWillYouVoteFor />
-        <InfoText />
+        <div>
+          <InfoText />
+          <AddressSearcher />
+        </div>
       </div>
-      <AddressSearcher />
     </div>
   );
 };
