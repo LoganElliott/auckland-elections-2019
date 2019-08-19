@@ -3,7 +3,7 @@ import AsyncSelect from 'react-select/async';
 import PropTypes from 'prop-types';
 
 import history from './history';
-import { AddressContext } from './AddressContext';
+import { MyContext } from './MyContext';
 import { getVotingInformation } from './getVotingInformation';
 
 const baseEndpoint = 'https://auck-elec.herokuapp.com';
@@ -35,10 +35,7 @@ export class AddressSearcher extends Component {
       body: JSON.stringify({ searchText })
     };
 
-    const request = new Request(
-      `https://cors-anywhere.herokuapp.com/${searchEndpoint}`,
-      requestInit
-    );
+    const request = new Request(searchEndpoint, requestInit);
 
     const response = await fetch(request);
 
@@ -60,7 +57,7 @@ export class AddressSearcher extends Component {
 
   render() {
     return (
-      <AddressContext.Consumer>
+      <MyContext.Consumer>
         {({ updateAddress, updateVotingInformation }) => (
           <div style={{ width: '344px' }}>
             <AsyncSelect
@@ -79,8 +76,12 @@ export class AddressSearcher extends Component {
                 );
                 updateVotingInformation(votingInformation);
                 let query = `ward=${votingInformation.ward}&localBoard=${votingInformation.localBoard}`;
-                if (votingInformation.subdivision !== 'No sub in this area') {
-                  query = query.concat(`&${votingInformation.subdivision}`);
+                if (
+                  votingInformation.subdivision !== 'Area Outside Subdivision'
+                ) {
+                  query = query.concat(
+                    `&subdivision=${votingInformation.subdivision}`
+                  );
                 }
                 history.push(`/scores?${query}`);
               }}
@@ -91,7 +92,7 @@ export class AddressSearcher extends Component {
             />
           </div>
         )}
-      </AddressContext.Consumer>
+      </MyContext.Consumer>
     );
   }
 }

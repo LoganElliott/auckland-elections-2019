@@ -10,7 +10,7 @@ import { Colours } from '../Contants/Colours';
 
 import { ReactComponent as GzLogo } from './gz.svg';
 import { AddressSearcher } from '../AddressSearcher';
-import { AddressContext } from '../AddressContext';
+import { MyContext } from '../MyContext';
 import { about, howWeScored, root } from '../Contants/routes';
 
 const styles = {
@@ -48,18 +48,23 @@ export const Header = () => {
   }
 
   function handleClose(route) {
-    history.push(route);
+    if (typeof route === 'string') {
+      history.push(route + history.location.search);
+    }
     setAnchorEl(null);
   }
 
   return (
-    <AddressContext.Consumer>
+    <MyContext.Consumer>
       {({ address }) => {
         console.log('address', address);
         return (
           <div style={styles.wrapper}>
             <GzLogo style={styles.logo} />
-            {address.value ? <AddressSearcher address={address} /> : null}
+            {address.value ||
+            history.location.pathname.substring(1).length > 0 ? (
+              <AddressSearcher address={address} />
+            ) : null}
             <IconButton
               aria-label="more"
               aria-controls="long-menu"
@@ -84,6 +89,6 @@ export const Header = () => {
           </div>
         );
       }}
-    </AddressContext.Consumer>
+    </MyContext.Consumer>
   );
 };

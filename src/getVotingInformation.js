@@ -14,10 +14,7 @@ export const getVotingInformation = async addressId => {
     method: 'GET'
   };
 
-  const request = new Request(
-    `https://cors-anywhere.herokuapp.com/${infoEndpoint}/${addressId}`,
-    requestInit
-  );
+  const request = new Request(`${infoEndpoint}/${addressId}`, requestInit);
   const response = await fetch(request);
 
   return response.json();

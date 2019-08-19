@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Route, Router } from 'react-router-dom';
+import qs from 'qs';
+
 import history from './history';
 
 import { Header } from './Header/Header';
@@ -7,7 +9,7 @@ import { Contents } from './Contents/Contents';
 import { Scores } from './Scores/Scores';
 import { About } from './About/About';
 
-import { AddressContext } from './AddressContext';
+import { MyContext } from './MyContext';
 import { about, howWeScored, root, scores } from './Contants/routes';
 
 class App extends Component {
@@ -25,16 +27,20 @@ class App extends Component {
     this.updateVotingInformation = votingInformation =>
       this.setState({ votingInformation });
 
+    const votingInformation = qs.parse(
+      decodeURI(history.location.search.substring(1))
+    );
+
     this.state = {
       address: {},
-      votingInformation: {}
+      votingInformation
     };
   }
 
   render() {
     return (
       <Router history={history}>
-        <AddressContext.Provider
+        <MyContext.Provider
           value={{
             address: this.state.address,
             updateAddress: this.updateAddress,
@@ -47,7 +53,7 @@ class App extends Component {
           <Route path={scores} component={Scores} />
           <Route path={about} component={About} />
           <Route path={howWeScored} component={About} />
-        </AddressContext.Provider>
+        </MyContext.Provider>
       </Router>
     );
   }
