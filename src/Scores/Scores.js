@@ -10,7 +10,13 @@ const styles = {
     color: 'white'
   },
   councillor: {
+    color: '#D7263D'
+  },
+  mayor: {
     color: '#3C2984'
+  },
+  localBoard: {
+    color: '#FBBA72'
   },
   scoreHeading: {
     fontSize: '26px',
@@ -49,6 +55,23 @@ const CouncillerScores = ({ ward }) => (
   </div>
 );
 
+const MayorScores = () => (
+  <div>
+    <div style={styles.scoreHeading}>
+      SCORES FOR <span style={styles.mayor}>Mayor</span>
+    </div>
+  </div>
+);
+
+const LocalBoardScores = ({ localBoard }) => (
+  <div>
+    <div style={styles.scoreHeading}>
+      SCORES FOR <span style={styles.localBoard}>LOCAL BOARD</span> (
+      {localBoard})
+    </div>
+  </div>
+);
+
 export const Scores = () => {
   return (
     <MyContext.Consumer>
@@ -56,7 +79,9 @@ export const Scores = () => {
         return (
           <div style={styles.wrapper}>
             <SubHeading {...votingInformation} />
+            <MayorScores />
             <CouncillerScores ward={votingInformation.ward} />
+            <LocalBoardScores localBoard={votingInformation.localBoard} />
           </div>
         );
       }}

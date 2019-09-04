@@ -1,5 +1,6 @@
 {
   "name": "auckland-elections-2019",
+  "homepage": "https://auckland-elections-2019-a6897.firebaseapp.com",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
