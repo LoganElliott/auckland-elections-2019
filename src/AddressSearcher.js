@@ -5,10 +5,7 @@ import PropTypes from 'prop-types';
 import history from './history';
 import { MyContext } from './MyContext';
 import { getVotingInformation } from './getVotingInformation';
-
-const baseEndpoint = 'https://auck-elec.herokuapp.com';
-const apiEndpoint = `${baseEndpoint}/api`;
-const searchEndpoint = `${apiEndpoint}/search`;
+import { searchEndpoint } from './Contants/endpoints';
 
 export class AddressSearcher extends Component {
   constructor(props) {
