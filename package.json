@@ -20,7 +20,9 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint src/",
-    "pretty": "prettier  --write \"**/**.js\""
+    "pretty": "prettier  --write \"**/**.js\"",
+    "predeploy": "npm run build",
+    "deploy": "firebase deploy"
   },
   "eslintConfig": {
     "extends": "react-app"
