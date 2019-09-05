@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import Button from '@material-ui/core/Button';
 
+import * as PropTypes from 'prop-types';
 import { MyContext } from '../MyContext';
 import { scoresEndpoint } from '../Contants/endpoints';
-import * as PropTypes from 'prop-types';
 
 const mayorColour = '#3C2984';
 const councillorColour = '#D7263D';
@@ -112,7 +112,9 @@ const SubHeading = props => (
       <div style={{ fontSize: '26px' }}>VOTING AREA</div>
       <div style={{ fontSize: '50px' }}>{props.ward}</div>
       <div style={{ fontSize: '40px' }}>{props.localBoard}</div>
-      <div style={{ fontSize: '30px' }}>{props.subdivision}</div>
+      {props.subdivision !== 'Area Outside' ? (
+        <div style={{ fontSize: '30px' }}>{props.subdivision}</div>
+      ) : null}
       <div style={{ fontSize: '16px', fontFamily: 'Roboto' }}>
         We sat down and grilled each Auckland Council candidate one by one. Here
         are the results.
@@ -221,7 +223,7 @@ class CouncillerScores extends Component {
   }
 
   render() {
-    let { ward } = this.props;
+    const { ward } = this.props;
     return (
       <div>
         <div style={styles.scoreHeading}>
