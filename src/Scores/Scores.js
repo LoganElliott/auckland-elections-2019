@@ -1,13 +1,17 @@
 import React, { Component } from 'react';
 import Button from '@material-ui/core/Button';
+import ReactImageFallback from 'react-image-fallback';
 
 import * as PropTypes from 'prop-types';
 import { MyContext } from '../MyContext';
 import { scoresEndpoint } from '../Contants/endpoints';
+import { candidateImagesRoute } from '../Contants/routes';
 
 const mayorColour = '#3C2984';
 const councillorColour = '#D7263D';
 const localBoardColour = '#FBBA72';
+
+const height = '175px';
 
 const styles = {
   wrapper: {
@@ -43,10 +47,6 @@ const styles = {
       alignItems: 'center',
       width: '550px'
     },
-    image: {
-      width: '180px',
-      height: '165px'
-    },
     name: {
       backgroundColor: 'black',
       fontSize: '48px',
@@ -65,7 +65,7 @@ const styles = {
     },
     wrapper: {
       maxWidth: '1000px',
-      minHeight: '165px',
+      minHeight: height,
       display: 'flex',
       flexWrap: 'wrap',
       alignItems: 'center',
@@ -95,7 +95,7 @@ const styles = {
       display: 'flex',
       backgroundColor: mayorColour,
       alignItems: 'center',
-      height: '165px'
+      height
     }
   }
 };
@@ -110,10 +110,14 @@ const SubHeading = props => (
       }}
     >
       <div style={{ fontSize: '26px' }}>VOTING AREA</div>
-      <div style={{ fontSize: '50px' }}>{props.ward}</div>
-      <div style={{ fontSize: '40px' }}>{props.localBoard}</div>
-      {props.subdivision !== 'Area Outside' ? (
-        <div style={{ fontSize: '30px' }}>{props.subdivision}</div>
+      <div style={{ fontSize: '50px' }}>
+        Ward: <span style={styles.councillor}>{props.ward}</span>
+      </div>
+      <div style={{ fontSize: '40px' }}>
+        Local Board: <span style={styles.localBoard}> {props.localBoard}</span>
+      </div>
+      {props.subdivision ? (
+        <div style={{ fontSize: '30px' }}>Subdivision: {props.subdivision}</div>
       ) : null}
       <div style={{ fontSize: '16px', fontFamily: 'Roboto' }}>
         We sat down and grilled each Auckland Council candidate one by one. Here
@@ -141,10 +145,28 @@ const getScores = async query => {
   return response.json();
 };
 
+const candidateImageUrl = candidate => {
+  const lowerCaseFirstName = candidate.firstName.toLowerCase();
+  const firstName =
+    lowerCaseFirstName.charAt(0).toUpperCase() + lowerCaseFirstName.slice(1);
+
+  const lowerCaseLastName = candidate.surname.toLowerCase();
+  const lastName =
+    lowerCaseLastName.charAt(0).toUpperCase() + lowerCaseLastName.slice(1);
+
+  return `${firstName}-${lastName}.png`;
+};
+
 const CandidateItem = ({ candidate }) => (
   <div style={styles.candidate.wrapper}>
     <div style={styles.candidate.info}>
-      <div style={styles.candidate.image} />
+      <ReactImageFallback
+        height={175}
+        width={175}
+        src={`${process.env.PUBLIC_URL}
+         ${candidateImagesRoute}/${candidateImageUrl(candidate)}`}
+        fallbackImage={`${candidateImagesRoute}/missing.jpg`}
+      />
       <div>
         <div style={styles.candidate.name}>{candidate.firstName}</div>
         <div style={styles.candidate.name}>{candidate.surname}</div>
