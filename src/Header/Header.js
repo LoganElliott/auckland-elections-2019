@@ -56,39 +56,36 @@ export const Header = () => {
 
   return (
     <MyContext.Consumer>
-      {({ address }) => {
-        console.log('address', address);
-        return (
-          <div style={styles.wrapper}>
-            <GzLogo style={styles.logo} />
-            {address.value ||
-            history.location.pathname.substring(1).length > 0 ? (
-              <AddressSearcher address={address} />
-            ) : null}
-            <IconButton
-              aria-label="more"
-              aria-controls="long-menu"
-              aria-haspopup="true"
-              onClick={handleClick}
-            >
-              <Icon>menu</Icon>
-            </IconButton>
-            <Menu
-              id="simple-menu"
-              anchorEl={anchorEl}
-              keepMounted
-              open={Boolean(anchorEl)}
-              onClose={handleClose}
-            >
-              <MenuItem onClick={() => handleClose(root)}>Home</MenuItem>
-              <MenuItem onClick={() => handleClose(howWeScored)}>
-                How we scored
-              </MenuItem>
-              <MenuItem onClick={() => handleClose(about)}>About us</MenuItem>
-            </Menu>
-          </div>
-        );
-      }}
+      {({ address }) => (
+        <div style={styles.wrapper}>
+          <GzLogo style={styles.logo} />
+          {address.value ||
+          history.location.pathname.substring(1).length > 0 ? (
+            <AddressSearcher address={address} />
+          ) : null}
+          <IconButton
+            aria-label="more"
+            aria-controls="long-menu"
+            aria-haspopup="true"
+            onClick={handleClick}
+          >
+            <Icon>menu</Icon>
+          </IconButton>
+          <Menu
+            id="simple-menu"
+            anchorEl={anchorEl}
+            keepMounted
+            open={Boolean(anchorEl)}
+            onClose={handleClose}
+          >
+            <MenuItem onClick={() => handleClose(root)}>Home</MenuItem>
+            <MenuItem onClick={() => handleClose(howWeScored)}>
+              How we scored
+            </MenuItem>
+            <MenuItem onClick={() => handleClose(about)}>About us</MenuItem>
+          </Menu>
+        </div>
+      )}
     </MyContext.Consumer>
   );
 };
