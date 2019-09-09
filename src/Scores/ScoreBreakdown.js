@@ -3,6 +3,8 @@ import Button from '@material-ui/core/Button';
 import * as PropTypes from 'prop-types';
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
+import qs from 'qs';
+
 import { CandidateInfo } from './CandiateItem';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
@@ -11,6 +13,7 @@ import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import { SectionScores } from './SectionScores';
 import { TotalScore } from './TotalScore';
+import history from '../history';
 
 const transportQuestions = [
   'Auckland Transport spending',
@@ -104,15 +107,41 @@ function a11yProps(index) {
 
 export const ScoreBreakdown = ({ candidate, colour }) => {
   const classes = useStyles();
-  const [open, setOpen] = React.useState(false);
+  let openModal = false;
+  const query = qs.parse(history.location.search);
+
+  if (
+    history.location.search.includes('&candidate=') &&
+    candidate.surname === query.candidate
+  ) {
+    openModal = true;
+  }
+  const [open, setOpen] = React.useState(openModal);
   const [modalStyle] = React.useState(getModalStyle);
   const [value, setValue] = React.useState(0);
 
+  const updateQuery = () => {
+    console.log(history.location);
+    const search = `${history.location.search}&candidate=${candidate.surname}`;
+    history.push(history.location.pathname + search);
+  };
+
+  const removeCandidateFromQuery = () => {
+    const search = history.location.search.substring(
+      0,
+      history.location.search.indexOf('&candidate')
+    );
+
+    history.push(history.location.pathname + search);
+  };
+
   const handleOpen = () => {
+    updateQuery();
     setOpen(true);
   };
 
   const handleClose = () => {
+    removeCandidateFromQuery();
     setOpen(false);
   };
 

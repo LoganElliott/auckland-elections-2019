@@ -78,7 +78,10 @@ export class AddressSearcher extends Component {
                     `&subdivision=${votingInformation.subdivision}`
                   );
                 }
-                history.push(`/scores?${query}`);
+                history.push({
+                  pathname: '/scores',
+                  search: `?${query}`
+                });
               }}
               onInputChange={newAddress =>
                 this.setState({ address: newAddress.label })
