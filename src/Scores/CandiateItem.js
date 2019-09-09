@@ -13,6 +13,9 @@ const styles = {
     color: 'white',
     alignItems: 'center'
   },
+  nameWrapper: {
+    margin: '32px'
+  },
   name: {
     backgroundColor: 'black',
     fontSize: '48px',
@@ -81,7 +84,7 @@ export const CandidateInfo = ({ candidate }) => (
          ${candidateImagesRoute}/${candidateImageUrl(candidate)}`}
       fallbackImage={`${candidateImagesRoute}/missing.jpg`}
     />
-    <div>
+    <div style={styles.nameWrapper}>
       <div style={styles.name}>{candidate.firstName}</div>
       <div style={styles.name}>{candidate.surname}</div>
       {candidate.affiliation ? (

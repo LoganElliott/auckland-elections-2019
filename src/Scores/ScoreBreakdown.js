@@ -48,8 +48,41 @@ const styles = {
     width: '500px',
     height: '100%',
     display: 'flex',
+    flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center'
+  },
+  quoteWrapper: {
+    width: '400px',
+    color: 'white'
+  },
+  quote: {
+    margin: '16px'
+  },
+  scoreSection: {
+    display: 'flex',
+    alignItems: 'center',
+    margin: '16px 0',
+    width: '400px'
+  },
+  scoreTitle: {
+    color: 'white',
+    fontSize: '24px'
+  },
+  scoreWrapper: {
+    borderRadius: '50%',
+    width: '100px',
+    height: '100px',
+    border: '5px solid black',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    margin: '0 20px',
+    backgroundColor: 'white'
+  },
+  score: {
+    fontWeight: 'bold',
+    fontSize: '40px'
   }
 };
 
@@ -158,6 +191,21 @@ export const ScoreBreakdown = ({ candidate, colour }) => {
         <div style={modalStyle} className={classes.paper}>
           <div style={{ ...styles.leftSide, backgroundColor: colour }}>
             <CandidateInfo candidate={candidate} />
+            <div style={styles.scoreSection}>
+              <div style={styles.scoreTitle}>Overall score</div>
+              <div style={styles.scoreWrapper}>
+                <div style={styles.score}>{candidate.overallGrade}</div>
+              </div>
+            </div>
+            <div
+              style={{
+                ...styles.quoteWrapper,
+                backgroundColor: 'rgba(255,255,255,0.2)'
+              }}
+            >
+              <div style={styles.quote}>{candidate.standoutQuote}</div>
+              <div>STANDOUT QUOTE</div>
+            </div>
           </div>
           <div>
             <AppBar position="static">
