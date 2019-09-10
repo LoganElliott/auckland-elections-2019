@@ -14,7 +14,7 @@ const styles = {
     alignItems: 'center'
   },
   nameWrapper: {
-    margin: '32px'
+    margin: '24px'
   },
   name: {
     backgroundColor: 'black',
@@ -96,7 +96,7 @@ export const CandidateInfo = ({ candidate }) => (
 
 export const CandidateItem = ({ candidate, colour }) => (
   <div style={styles.wrapper}>
-    <div style={{ width: '500px' }}>
+    <div style={{ maxWidth: '500px' }}>
       <CandidateInfo candidate={candidate} />
     </div>
     <div style={{ ...styles.rightSide, backgroundColor: colour }}>

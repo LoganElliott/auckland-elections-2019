@@ -24,7 +24,8 @@ const styles = {
     display: 'flex',
     color: 'white',
     fontSize: '20px',
-    width: '340px'
+    width: '340px',
+    marginTop: '32px'
   },
   infoText: {
     fontWeight: 500,
@@ -36,7 +37,8 @@ const styles = {
     display: 'flex',
     justifyContent: 'space-evenly',
     alignItems: 'center',
-    height: '100%'
+    height: '100%',
+    flexWrap: 'wrap'
   },
   findYour: {
     color: 'white',

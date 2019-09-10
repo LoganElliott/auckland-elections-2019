@@ -15,6 +15,10 @@ import { SectionScores } from './SectionScores';
 import { TotalScore } from './TotalScore';
 import history from '../history';
 
+import house from '../Contants/house.js';
+import environment from '../Contants/environment.js';
+import competence from '../Contants/competence.js';
+
 const transportQuestions = [
   'Auckland Transport spending',
   'Vision Zero',
@@ -215,9 +219,9 @@ export const ScoreBreakdown = ({ candidate, colour }) => {
                 aria-label="simple tabs example"
               >
                 <Tab label="Transport" {...a11yProps(0)} />
-                <Tab label="Urban Form" {...a11yProps(1)} />
-                <Tab label="Environment" {...a11yProps(2)} />
-                <Tab label="Competency" {...a11yProps(3)} />
+                <Tab label="Urban Form" icon={house} {...a11yProps(1)} />
+                <Tab label="Environment" icon={environment} {...a11yProps(2)} />
+                <Tab label="Competency" icon={competence} {...a11yProps(3)} />
               </Tabs>
             </AppBar>
             <TabPanel value={value} index={0}>
