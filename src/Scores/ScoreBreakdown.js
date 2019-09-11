@@ -15,6 +15,7 @@ import { SectionScores } from './SectionScores';
 import { TotalScore } from './TotalScore';
 import history from '../history';
 
+import transport from '../Contants/transport.js';
 import house from '../Contants/house.js';
 import environment from '../Contants/environment.js';
 import competence from '../Contants/competence.js';
@@ -218,7 +219,7 @@ export const ScoreBreakdown = ({ candidate, colour }) => {
                 onChange={handleChange}
                 aria-label="simple tabs example"
               >
-                <Tab label="Transport" {...a11yProps(0)} />
+                <Tab label="Transport" icon={transport} {...a11yProps(0)} />
                 <Tab label="Urban Form" icon={house} {...a11yProps(1)} />
                 <Tab label="Environment" icon={environment} {...a11yProps(2)} />
                 <Tab label="Competency" icon={competence} {...a11yProps(3)} />
