@@ -1,48 +1,13 @@
 import Modal from '@material-ui/core/Modal';
 import Button from '@material-ui/core/Button';
-import * as PropTypes from 'prop-types';
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import qs from 'qs';
 
 import { CandidateInfo } from './CandiateItem';
-import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
-import AppBar from '@material-ui/core/AppBar';
-import Typography from '@material-ui/core/Typography';
-import Box from '@material-ui/core/Box';
-import { SectionScores } from './SectionScores';
-import { TotalScore } from './TotalScore';
 import history from '../history';
 
-import transport from '../Contants/transport.js';
-import house from '../Contants/house.js';
-import environment from '../Contants/environment.js';
-import competence from '../Contants/competence.js';
-
-const transportQuestions = [
-  'Auckland Transport spending',
-  'Vision Zero',
-  'Top 3 transport projects',
-  'Modal shift to active transport',
-  'Tactical Urbanism',
-  'Micro mobility support',
-  'Freeze the fairs'
-];
-
-const urbanFormQuestions = [
-  'Increasing housing supply and affordability',
-  'Making kiwibuild better in Auckland',
-  'More environmental building construction'
-];
-
-const environmentQuestions = [
-  "Improving Auckland's streetscapes",
-  'Improving pedestrian environment and accessibility',
-  'Reducing waste',
-  'Addressing climate change',
-  'Just transition for climate change'
-];
+import { QuestionTabs } from './QuestionTabs';
 
 const styles = {
   button: {
@@ -113,39 +78,7 @@ function getModalStyle() {
   };
 }
 
-function TabPanel(props) {
-  const { children, value, index, ...other } = props;
-
-  return (
-    <Typography
-      component="div"
-      role="tabpanel"
-      hidden={value !== index}
-      id={`simple-tabpanel-${index}`}
-      aria-labelledby={`simple-tab-${index}`}
-      {...other}
-    >
-      <Box style={{ padding: 0 }} p={4}>
-        {children}
-      </Box>
-    </Typography>
-  );
-}
-
-TabPanel.propTypes = {
-  children: PropTypes.node,
-  index: PropTypes.any.isRequired,
-  value: PropTypes.any.isRequired
-};
-
-function a11yProps(index) {
-  return {
-    id: `simple-tab-${index}`,
-    'aria-controls': `simple-tabpanel-${index}`
-  };
-}
-
-export const ScoreBreakdown = ({ candidate, colour }) => {
+export const ScoreBreakdown = ({ candidate, colour, isLocalBoard }) => {
   const classes = useStyles();
   let openModal = false;
   const query = qs.parse(history.location.search);
@@ -156,9 +89,9 @@ export const ScoreBreakdown = ({ candidate, colour }) => {
   ) {
     openModal = true;
   }
+
   const [open, setOpen] = React.useState(openModal);
   const [modalStyle] = React.useState(getModalStyle);
-  const [value, setValue] = React.useState(0);
 
   const updateQuery = () => {
     console.log(history.location);
@@ -185,10 +118,6 @@ export const ScoreBreakdown = ({ candidate, colour }) => {
     setOpen(false);
   };
 
-  function handleChange(event, newValue) {
-    setValue(newValue);
-  }
-
   return (
     <div>
       <Button variant="contained" style={styles.button} onClick={handleOpen}>
@@ -214,50 +143,7 @@ export const ScoreBreakdown = ({ candidate, colour }) => {
               <div>MARKERS CONSENSUS</div>
             </div>
           </div>
-          <div>
-            <AppBar position="static">
-              <Tabs
-                value={value}
-                onChange={handleChange}
-                aria-label="simple tabs example"
-              >
-                <Tab label="Transport" icon={transport} {...a11yProps(0)} />
-                <Tab label="Urban Form" icon={house} {...a11yProps(1)} />
-                <Tab label="Environment" icon={environment} {...a11yProps(2)} />
-                <Tab label="Competency" icon={competence} {...a11yProps(3)} />
-              </Tabs>
-            </AppBar>
-            <TabPanel value={value} index={0}>
-              <SectionScores
-                questions={transportQuestions}
-                sectionNumber={1}
-                sectionTitle={'Transport Score'}
-                candidate={candidate}
-              />
-            </TabPanel>
-            <TabPanel value={value} index={1}>
-              <SectionScores
-                questions={urbanFormQuestions}
-                sectionNumber={2}
-                sectionTitle={'Urban Form Score'}
-                candidate={candidate}
-              />
-            </TabPanel>
-            <TabPanel value={value} index={2}>
-              <SectionScores
-                questions={environmentQuestions}
-                sectionNumber={3}
-                sectionTitle={'Environment Score'}
-                candidate={candidate}
-              />
-            </TabPanel>
-            <TabPanel value={value} index={3}>
-              <TotalScore
-                sectionTitle={'Competence'}
-                score={candidate[`s4Score`]}
-              />
-            </TabPanel>
-          </div>
+          <QuestionTabs candidate={candidate} isLocalBoard={isLocalBoard} />
         </div>
       </Modal>
     </div>

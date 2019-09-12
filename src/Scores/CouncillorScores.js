@@ -5,8 +5,6 @@ import { CandidateItem } from './CandiateItem';
 import { councillorColour } from './constants';
 import { ScoreHeading } from './ScoreHeading';
 
-const styles = {};
-
 export class CouncillorScores extends Component {
   constructor(props) {
     super(props);
@@ -31,8 +29,7 @@ export class CouncillorScores extends Component {
       <div>
         <ScoreHeading>
           <div>
-            SCORES FOR <span style={styles.councillor}>COUNCILLOR</span> ({ward}
-            )
+            SCORES FOR <span>COUNCILLOR</span> ({ward})
           </div>
           {this.state.wardCandidates.map(candidate => (
             <CandidateItem

@@ -33,7 +33,7 @@ const styles = {
     padding: '3px'
   },
   wrapper: {
-    maxWidth: '1000px',
+    width: '900px',
     minHeight: height,
     display: 'flex',
     flexWrap: 'wrap',
@@ -94,13 +94,17 @@ export const CandidateInfo = ({ candidate }) => (
   </div>
 );
 
-export const CandidateItem = ({ candidate, colour }) => (
+export const CandidateItem = ({ candidate, colour, isLocalBoard }) => (
   <div style={styles.wrapper}>
     <div style={{ maxWidth: '500px', flex: '1' }}>
       <CandidateInfo candidate={candidate} />
     </div>
     <div style={{ ...styles.rightSide, backgroundColor: colour }}>
-      <ScoreBreakdown candidate={candidate} colour={colour} />
+      <ScoreBreakdown
+        candidate={candidate}
+        colour={colour}
+        isLocalBoard={isLocalBoard}
+      />
       <div style={styles.scoreWrapper}>
         <div style={styles.score}>{candidate.overallGrade}</div>
       </div>
@@ -115,5 +119,6 @@ CandidateItem.propTypes = {
     affiliation: PropTypes.string,
     overallGrade: PropTypes.string.isRequired
   }),
-  colour: PropTypes.string.isRequired
+  colour: PropTypes.string.isRequired,
+  isLocalBoard: PropTypes.bool
 };
