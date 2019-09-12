@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import * as PropTypes from 'prop-types';
+import CircularProgress from '@material-ui/core/CircularProgress';
+
 import { getScores } from './getScores';
 import { CandidateItem } from './CandiateItem';
 import { councillorColour } from './constants';
@@ -9,12 +11,15 @@ export class CouncillorScores extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      wardCandidates: []
+      wardCandidates: [],
+      isLoading: false
     };
   }
 
   async componentDidMount() {
+    this.setState({ isLoading: true });
     await this.getCouncillorScores();
+    this.setState({ isLoading: false });
   }
 
   async getCouncillorScores() {
@@ -31,13 +36,17 @@ export class CouncillorScores extends Component {
           <div>
             SCORES FOR <span>COUNCILLOR</span> ({ward})
           </div>
-          {this.state.wardCandidates.map(candidate => (
-            <CandidateItem
-              candidate={candidate}
-              key={candidate.firstName + candidate.surname}
-              colour={councillorColour}
-            />
-          ))}
+          {!this.state.isLoading ? (
+            this.state.wardCandidates.map(candidate => (
+              <CandidateItem
+                candidate={candidate}
+                key={candidate.firstName + candidate.surname}
+                colour={councillorColour}
+              />
+            ))
+          ) : (
+            <CircularProgress size={200} />
+          )}
         </ScoreHeading>
       </div>
     );

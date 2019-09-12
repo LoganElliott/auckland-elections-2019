@@ -17,13 +17,15 @@ export const getVotingInformation = async addressId => {
 
   const votingInformation = await response.json();
 
+  const subdivision = votingInformation.subdivision.includes('Area Outside')
+    ? null
+    : votingInformation.subdivision.replace(/subdivision/gi, '').trim();
+
   return {
     ward: votingInformation.ward.replace(/ward/gi, '').trim(),
     localBoard: votingInformation.localBoard
       .replace(/local.*board/gi, '')
       .trim(),
-    subdivision: votingInformation.subdivision
-      .replace(/subdivision/gi, '')
-      .trim()
+    subdivision
   };
 };

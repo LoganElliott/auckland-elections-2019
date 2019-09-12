@@ -10,6 +10,7 @@ const height = '175px';
 const styles = {
   info: {
     display: 'flex',
+    flex: 1,
     color: 'white',
     alignItems: 'center'
   },
@@ -33,7 +34,7 @@ const styles = {
     padding: '3px'
   },
   wrapper: {
-    width: '900px',
+    width: '1000px',
     minHeight: height,
     display: 'flex',
     flexWrap: 'wrap',
@@ -96,9 +97,7 @@ export const CandidateInfo = ({ candidate }) => (
 
 export const CandidateItem = ({ candidate, colour, isLocalBoard }) => (
   <div style={styles.wrapper}>
-    <div style={{ maxWidth: '500px', flex: '1' }}>
-      <CandidateInfo candidate={candidate} />
-    </div>
+    <CandidateInfo candidate={candidate} />
     <div style={{ ...styles.rightSide, backgroundColor: colour }}>
       <ScoreBreakdown
         candidate={candidate}

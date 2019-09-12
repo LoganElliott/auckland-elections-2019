@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import CircularProgress from '@material-ui/core/CircularProgress';
+
 import { ScoreHeading } from './ScoreHeading';
 import * as PropTypes from 'prop-types';
 import { getScores } from './getScores';
@@ -9,37 +11,54 @@ export class LocalBoardScores extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      localBoardCandidates: []
+      localBoardCandidates: [],
+      isLoading: false
     };
   }
 
   async componentDidMount() {
+    this.setState({ isLoading: true });
     await this.getLocalBoardScores();
+    this.setState({ isLoading: false });
+  }
+
+  get localBoardQuery() {
+    const encodedLocalBoard = encodeURIComponent(this.props.localBoard);
+    const baseQuery = `sheet=localBoard&localBoard=${encodedLocalBoard}`;
+
+    if (this.props.subdivision) {
+      const encodedSubdivision = encodeURIComponent(this.props.subdivision);
+      return `${baseQuery}&subdivision=${encodedSubdivision}`;
+    }
+
+    return baseQuery;
   }
 
   async getLocalBoardScores() {
-    const encodedLocalBoard = encodeURIComponent(this.props.localBoard);
-    const scores = await getScores(
-      `sheet=localBoard&ward=${encodedLocalBoard}`
-    );
+    const scores = await getScores(this.localBoardQuery);
     this.setState({ localBoardCandidates: scores.localBoardScores });
   }
 
   render() {
-    let { localBoard } = this.props;
+    let { localBoard, subdivision } = this.props;
+
     return (
       <div>
         <ScoreHeading>
-          SCORES FOR <span>LOCAL BOARD</span> (
-          {localBoard})
-          {this.state.localBoardCandidates.map(candidate => (
-            <CandidateItem
-              candidate={candidate}
-              key={candidate.firstName + candidate.surname}
-              colour={localBoardColour}
-              isLocalBoard
-            />
-          ))}
+          SCORES FOR LOCAL BOARD <div>({localBoard})</div>
+          {subdivision ? <div>({subdivision})</div> : null}
+          {!this.state.isLoading ? (
+            this.state.localBoardCandidates.map(candidate => (
+              <CandidateItem
+                candidate={candidate}
+                key={candidate.firstName + candidate.surname}
+                colour={localBoardColour}
+                isLocalBoard
+              />
+            ))
+          ) : (
+            <CircularProgress size={200} />
+          )}
         </ScoreHeading>
       </div>
     );

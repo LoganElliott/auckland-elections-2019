@@ -20,7 +20,8 @@ const styles = {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    padding: '0 20px'
   },
   quoteWrapper: {
     width: '400px',
@@ -133,15 +134,17 @@ export const ScoreBreakdown = ({ candidate, colour, isLocalBoard }) => {
                 <div style={styles.score}>{candidate.overallGrade}</div>
               </div>
             </div>
-            <div
-              style={{
-                ...styles.quoteWrapper,
-                backgroundColor: 'rgba(255,255,255,0.2)'
-              }}
-            >
-              <div style={styles.quote}>{candidate.candidateSummary}</div>
-              <div>MARKERS CONSENSUS</div>
-            </div>
+            {candidate.candidateSummary ? (
+              <div
+                style={{
+                  ...styles.quoteWrapper,
+                  backgroundColor: 'rgba(255,255,255,0.2)'
+                }}
+              >
+                <div style={styles.quote}>{candidate.candidateSummary}</div>
+                <div>MARKERS CONSENSUS</div>
+              </div>
+            ) : null}
           </div>
           <QuestionTabs candidate={candidate} isLocalBoard={isLocalBoard} />
         </div>

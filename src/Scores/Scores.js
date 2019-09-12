@@ -64,7 +64,10 @@ export const Scores = () => {
             />
             <MayoralScores />
             <CouncillorScores ward={votingInformation.ward} />
-            <LocalBoardScores localBoard={votingInformation.localBoard} />
+            <LocalBoardScores
+              localBoard={votingInformation.localBoard}
+              subdivision={votingInformation.subdivision}
+            />
           </div>
         );
       }}
