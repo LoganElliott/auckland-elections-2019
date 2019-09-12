@@ -56,7 +56,7 @@ export class AddressSearcher extends Component {
     return (
       <MyContext.Consumer>
         {({ updateAddress, updateVotingInformation }) => (
-          <div style={{ width: '344px' }}>
+          <div style={{ minWidth: '310px', maxWidth: '400px' }}>
             <AsyncSelect
               cacheOptions
               defaultOptions

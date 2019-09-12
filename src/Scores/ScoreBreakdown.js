@@ -125,7 +125,9 @@ function TabPanel(props) {
       aria-labelledby={`simple-tab-${index}`}
       {...other}
     >
-      <Box p={4}>{children}</Box>
+      <Box style={{ padding: 0 }} p={4}>
+        {children}
+      </Box>
     </Typography>
   );
 }
@@ -208,8 +210,8 @@ export const ScoreBreakdown = ({ candidate, colour }) => {
                 backgroundColor: 'rgba(255,255,255,0.2)'
               }}
             >
-              <div style={styles.quote}>{candidate.standoutQuote}</div>
-              <div>STANDOUT QUOTE</div>
+              <div style={styles.quote}>{candidate.candidateSummary}</div>
+              <div>MARKERS CONSENSUS</div>
             </div>
           </div>
           <div>
