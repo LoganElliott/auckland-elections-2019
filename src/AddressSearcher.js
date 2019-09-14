@@ -7,6 +7,15 @@ import { MyContext } from './MyContext';
 import { getVotingInformation } from './getVotingInformation';
 import { searchEndpoint } from './Contants/endpoints';
 
+const styles = {
+  searchBox: {
+    flex: 1,
+    minWidth: '300px',
+    maxWidth: '400px',
+    padding: '8px'
+  }
+};
+
 export class AddressSearcher extends Component {
   constructor(props) {
     super(props);
@@ -56,7 +65,7 @@ export class AddressSearcher extends Component {
     return (
       <MyContext.Consumer>
         {({ updateAddress, updateVotingInformation }) => (
-          <div style={{ minWidth: '310px', maxWidth: '400px' }}>
+          <div style={styles.searchBox}>
             <AsyncSelect
               cacheOptions
               defaultOptions

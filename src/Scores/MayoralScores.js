@@ -6,7 +6,11 @@ import { mayoralColour } from './constants';
 import { ScoreHeading } from './ScoreHeading';
 import { CircularProgress } from '@material-ui/core';
 
-const styles = {};
+const styles = {
+  mayor: {
+    color: mayoralColour
+  }
+};
 
 export class MayoralScores extends Component {
   constructor(props) {
@@ -35,7 +39,7 @@ export class MayoralScores extends Component {
       <div>
         <ScoreHeading>
           <div>
-            SCORES FOR <span style={styles.mayor}>Mayor</span>
+            SCORES FOR <span style={styles.mayor}>MAYOR</span>
           </div>
           <div>
             {!this.state.isLoading ? (

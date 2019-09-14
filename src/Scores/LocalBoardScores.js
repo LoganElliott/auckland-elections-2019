@@ -7,6 +7,12 @@ import { getScores } from './getScores';
 import { CandidateItem } from './CandiateItem';
 import { localBoardColour } from './constants';
 
+const styles = {
+  localBoard: {
+    color: localBoardColour
+  }
+};
+
 export class LocalBoardScores extends Component {
   constructor(props) {
     super(props);
@@ -53,7 +59,10 @@ export class LocalBoardScores extends Component {
     return (
       <div>
         <ScoreHeading>
-          SCORES FOR LOCAL BOARD <div>({localBoard})</div>
+          <div>
+            SCORES FOR LOCAL BOARD
+            <span style={styles.localBoard}> ({localBoard})</span>
+          </div>
           {subdivision ? <div>({subdivision})</div> : null}
           {!this.state.isLoading ? (
             this.state.localBoardCandidates.map(candidate => (

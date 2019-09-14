@@ -55,8 +55,7 @@ const SubHeading = ({ ward, localBoard, subdivision }) => (
 export const Scores = () => {
   return (
     <MyContext.Consumer>
-      {({ votingInformation, updateAddress }) => {
-        console.log('votingInformation score', votingInformation);
+      {({ votingInformation }) => {
         if (!votingInformation) {
           history.push({
             path: '/'

@@ -4,7 +4,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import qs from 'qs';
 
-import { CandidateInfo } from './CandiateItem';
+import { CandidateInfo } from './BigCandidateItem';
 import history from '../history';
 
 import { QuestionTabs } from './QuestionTabs';
