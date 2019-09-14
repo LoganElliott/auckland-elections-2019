@@ -17,22 +17,22 @@ class App extends Component {
     super(props);
 
     this.updateAddress = newAddress => {
-      if (newAddress) {
+      if (newAddress && newAddress) {
         this.setState({ address: newAddress });
       } else {
-        this.setState({ address: {} });
+        this.setState({ address: null });
       }
     };
 
     this.updateVotingInformation = votingInformation =>
       this.setState({ votingInformation });
 
-    const votingInformation = qs.parse(
-      decodeURI(history.location.search.substring(1))
-    );
+    const votingInformation = history.location.search
+      ? qs.parse(decodeURI(history.location.search.substring(1)))
+      : null;
 
     this.state = {
-      address: {},
+      address: null,
       votingInformation
     };
   }

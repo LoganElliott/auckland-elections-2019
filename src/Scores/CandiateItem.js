@@ -34,13 +34,18 @@ const styles = {
     padding: '3px'
   },
   wrapper: {
-    width: '1000px',
     minHeight: height,
     display: 'flex',
     flexWrap: 'wrap',
     alignItems: 'center',
     backgroundColor: 'white',
     margin: '20px 0'
+  },
+  scoreSection: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    padding: '0 12px'
   },
   scoreWrapper: {
     borderRadius: '50%',
@@ -96,16 +101,26 @@ export const CandidateInfo = ({ candidate }) => (
 );
 
 export const CandidateItem = ({ candidate, colour, isLocalBoard }) => (
-  <div style={styles.wrapper}>
+  <div
+    style={{
+      ...styles.wrapper,
+      width: candidate.overallGrade ? '1000px' : 'fit-content'
+    }}
+  >
     <CandidateInfo candidate={candidate} />
     <div style={{ ...styles.rightSide, backgroundColor: colour }}>
-      <ScoreBreakdown
-        candidate={candidate}
-        colour={colour}
-        isLocalBoard={isLocalBoard}
-      />
-      <div style={styles.scoreWrapper}>
-        <div style={styles.score}>{candidate.overallGrade}</div>
+      {candidate.overallGrade ? (
+        <ScoreBreakdown
+          candidate={candidate}
+          colour={colour}
+          isLocalBoard={isLocalBoard}
+        />
+      ) : null}
+      <div style={styles.scoreSection}>
+        <div style={styles.scoreWrapper}>
+          <div style={styles.score}>{candidate.overallGrade || '😞'}</div>
+        </div>
+        {candidate.overallGrade ? null : 'Declined interview'}
       </div>
     </div>
   </div>

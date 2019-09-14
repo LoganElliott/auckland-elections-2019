@@ -12,7 +12,7 @@ export class AddressSearcher extends Component {
     super(props);
 
     this.state = {
-      address: props.address.label
+      address: props.address ? props.address.label : ''
     };
 
     this.promiseOptions = this.promiseOptions.bind(this);
@@ -68,20 +68,27 @@ export class AddressSearcher extends Component {
               loadOptions={this.promiseOptions}
               onChange={async value => {
                 updateAddress(value);
-                const votingInformation = await getVotingInformation(
-                  value.value
-                );
-                updateVotingInformation(votingInformation);
-                let query = `ward=${votingInformation.ward}&localBoard=${votingInformation.localBoard}`;
-                if (votingInformation.subdivision !== 'Area Outside') {
-                  query = query.concat(
-                    `&subdivision=${votingInformation.subdivision}`
+                if (value) {
+                  const votingInformation = await getVotingInformation(
+                    value.value
                   );
+                  updateVotingInformation(votingInformation);
+                  let query = `ward=${votingInformation.ward}&localBoard=${votingInformation.localBoard}`;
+                  if (votingInformation.subdivision !== 'Area Outside') {
+                    query = query.concat(
+                      `&subdivision=${votingInformation.subdivision}`
+                    );
+                  }
+                  history.push({
+                    pathname: '/scores',
+                    search: `?${query}`
+                  });
+                } else {
+                  history.push({
+                    pathname: '/scores',
+                    search: ``
+                  });
                 }
-                history.push({
-                  pathname: '/scores',
-                  search: `?${query}`
-                });
               }}
               onInputChange={newAddress =>
                 this.setState({ address: newAddress.label })

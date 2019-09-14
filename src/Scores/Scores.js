@@ -4,6 +4,7 @@ import { MayoralScores } from './MayoralScores';
 import { CouncillorScores } from './CouncillorScores';
 import { LocalBoardScores } from './LocalBoardScores';
 import { councillorColour, localBoardColour, mayoralColour } from './constants';
+import history from '../history';
 
 const styles = {
   wrapper: {
@@ -54,7 +55,13 @@ const SubHeading = ({ ward, localBoard, subdivision }) => (
 export const Scores = () => {
   return (
     <MyContext.Consumer>
-      {({ votingInformation }) => {
+      {({ votingInformation, updateAddress }) => {
+        console.log('votingInformation score', votingInformation);
+        if (!votingInformation) {
+          history.push({
+            path: '/'
+          });
+        }
         return (
           <div style={styles.wrapper}>
             <SubHeading

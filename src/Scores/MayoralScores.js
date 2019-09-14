@@ -18,14 +18,16 @@ export class MayoralScores extends Component {
   }
 
   async componentDidMount() {
-    this.setState({ isLoading: true });
     await this.getMayoralScores();
-    this.setState({ isLoading: false });
   }
 
   async getMayoralScores() {
+    this.setState({ isLoading: true });
     const scores = await getScores('sheet=mayoral');
-    this.setState({ mayoralCandidates: scores.mayoralScores });
+    this.setState({
+      mayoralCandidates: scores.mayoralScores,
+      isLoading: false
+    });
   }
 
   render() {

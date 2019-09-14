@@ -17,15 +17,23 @@ export class CouncillorScores extends Component {
   }
 
   async componentDidMount() {
-    this.setState({ isLoading: true });
     await this.getCouncillorScores();
-    this.setState({ isLoading: false });
+  }
+
+  async componentDidUpdate({ ward }) {
+    if (ward !== this.props.ward) {
+      await this.getCouncillorScores();
+    }
   }
 
   async getCouncillorScores() {
+    this.setState({ isLoading: true });
     const encodedWard = encodeURIComponent(this.props.ward);
     const scores = await getScores(`sheet=councillor&ward=${encodedWard}`);
-    this.setState({ wardCandidates: scores.councillorsScores });
+    this.setState({
+      wardCandidates: scores.councillorsScores,
+      isLoading: false
+    });
   }
 
   render() {

@@ -17,9 +17,13 @@ export class LocalBoardScores extends Component {
   }
 
   async componentDidMount() {
-    this.setState({ isLoading: true });
     await this.getLocalBoardScores();
-    this.setState({ isLoading: false });
+  }
+
+  async componentDidUpdate({ localBoard }) {
+    if (localBoard !== this.props.localBoard) {
+      await this.getLocalBoardScores();
+    }
   }
 
   get localBoardQuery() {
@@ -35,8 +39,12 @@ export class LocalBoardScores extends Component {
   }
 
   async getLocalBoardScores() {
+    this.setState({ isLoading: true });
     const scores = await getScores(this.localBoardQuery);
-    this.setState({ localBoardCandidates: scores.localBoardScores });
+    this.setState({
+      localBoardCandidates: scores.localBoardScores,
+      isLoading: false
+    });
   }
 
   render() {

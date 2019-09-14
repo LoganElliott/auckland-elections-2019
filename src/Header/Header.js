@@ -56,11 +56,10 @@ export const Header = () => {
 
   return (
     <MyContext.Consumer>
-      {({ address }) => (
+      {({ address, updateAddress }) => (
         <div style={styles.wrapper}>
           <GzLogo style={styles.logo} />
-          {address.value ||
-          history.location.pathname.substring(1).length > 0 ? (
+          {address || history.location.pathname.substring(1).length > 0 ? (
             <AddressSearcher address={address} />
           ) : null}
           <IconButton
@@ -78,7 +77,14 @@ export const Header = () => {
             open={Boolean(anchorEl)}
             onClose={handleClose}
           >
-            <MenuItem onClick={() => handleClose(root)}>Home</MenuItem>
+            <MenuItem
+              onClick={() => {
+                updateAddress(null);
+                handleClose(root);
+              }}
+            >
+              Home
+            </MenuItem>
             <MenuItem onClick={() => handleClose(howWeScored)}>
               How we scored
             </MenuItem>
