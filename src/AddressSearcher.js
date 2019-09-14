@@ -74,7 +74,7 @@ export class AddressSearcher extends Component {
                   );
                   updateVotingInformation(votingInformation);
                   let query = `ward=${votingInformation.ward}&localBoard=${votingInformation.localBoard}`;
-                  if (votingInformation.subdivision !== 'Area Outside') {
+                  if (votingInformation.subdivision) {
                     query = query.concat(
                       `&subdivision=${votingInformation.subdivision}`
                     );
