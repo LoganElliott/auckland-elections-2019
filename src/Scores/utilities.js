@@ -14,13 +14,10 @@ const isInViewport = elem => {
 };
 
 export const scrollToCandidate = () => {
-  console.log('cdm');
   const query = qs.parse(history.location.search);
   if (history.location.search.includes(`&candidate=`)) {
-    console.log('has can');
     const candidateBox = document.getElementById(query.candidate);
     if (candidateBox && !isInViewport(candidateBox)) {
-      console.log('has ele');
       candidateBox.scrollIntoView();
     }
   }
