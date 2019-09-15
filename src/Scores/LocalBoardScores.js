@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import CircularProgress from '@material-ui/core/CircularProgress';
 
-import { ScoreHeading } from './ScoreHeading';
+import { ScoreHeading } from './CandidateItem/ScoreHeading';
 import * as PropTypes from 'prop-types';
 import { getScores } from './getScores';
-import { CandidateItem } from './CandiateItem';
-import { localBoardColour } from './constants';
+import { CandidateItem } from './CandidateItem/CandiateItem';
+import { candidateType, localBoardColour } from './constants';
+import { scrollToCandidate } from './utilities';
 
 const styles = {
   localBoard: {
@@ -30,6 +31,8 @@ export class LocalBoardScores extends Component {
     if (localBoard !== this.props.localBoard) {
       await this.getLocalBoardScores();
     }
+
+    scrollToCandidate();
   }
 
   get localBoardQuery() {
@@ -70,7 +73,7 @@ export class LocalBoardScores extends Component {
                 candidate={candidate}
                 key={candidate.firstName + candidate.surname}
                 colour={localBoardColour}
-                isLocalBoard
+                type={candidateType.LOCAL_BOARD}
               />
             ))
           ) : (

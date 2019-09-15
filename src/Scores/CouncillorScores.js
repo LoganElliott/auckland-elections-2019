@@ -3,9 +3,10 @@ import * as PropTypes from 'prop-types';
 import CircularProgress from '@material-ui/core/CircularProgress';
 
 import { getScores } from './getScores';
-import { CandidateItem } from './CandiateItem';
-import { councillorColour } from './constants';
-import { ScoreHeading } from './ScoreHeading';
+import { CandidateItem } from './CandidateItem/CandiateItem';
+import { candidateType, councillorColour } from './constants';
+import { ScoreHeading } from './CandidateItem/ScoreHeading';
+import { scrollToCandidate } from './utilities';
 
 const styles = {
   councillor: {
@@ -29,6 +30,8 @@ export class CouncillorScores extends Component {
     if (ward !== this.props.ward) {
       await this.getCouncillorScores();
     }
+
+    scrollToCandidate();
   }
 
   async getCouncillorScores() {
@@ -56,6 +59,7 @@ export class CouncillorScores extends Component {
                 candidate={candidate}
                 key={candidate.firstName + candidate.surname}
                 colour={councillorColour}
+                type={candidateType.WARD}
               />
             ))
           ) : (

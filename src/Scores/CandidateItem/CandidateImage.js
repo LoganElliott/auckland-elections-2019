@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactImageFallback from 'react-image-fallback';
-import { candidateImagesRoute } from '../Contants/routes';
+import { candidateImagesRoute } from '../../Contants/routes';
 
 export const CandidateImage = ({ candidate }) => {
   const candidateImageUrl = () => {

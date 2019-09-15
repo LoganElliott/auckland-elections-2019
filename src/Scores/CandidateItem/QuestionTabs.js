@@ -1,10 +1,10 @@
 import AppBar from '@material-ui/core/AppBar/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
-import transport from '../Contants/transport';
-import house from '../Contants/house';
-import environment from '../Contants/environment';
-import competence from '../Contants/competence';
+import transport from '../../Contants/transport';
+import house from '../../Contants/house';
+import environment from '../../Contants/environment';
+import competence from '../../Contants/competence';
 import { SectionScores } from './SectionScores';
 import { TotalScore } from './TotalScore';
 import React from 'react';
@@ -102,6 +102,7 @@ export const QuestionTabs = ({ candidate, isLocalBoard }) => {
           onChange={handleChange}
           aria-label="score-categories"
           classes={{ flexContainer: 'spaceTabContent' }}
+          variant="fullWidth"
         >
           <Tab label="Transport" icon={transport} {...a11yProps(0)} />
           <Tab label="Urban Form" icon={house} {...a11yProps(1)} />

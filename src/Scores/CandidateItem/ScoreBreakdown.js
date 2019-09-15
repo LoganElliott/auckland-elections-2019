@@ -5,9 +5,11 @@ import { makeStyles } from '@material-ui/core/styles';
 import qs from 'qs';
 
 import { CandidateInfo } from './BigCandidateItem';
-import history from '../history';
+import history from '../../history';
 
 import { QuestionTabs } from './QuestionTabs';
+import { addCandidateToQuery, removeCandidateFromQuery } from '../utilities';
+import { candidateType } from '../constants';
 
 const styles = {
   button: {
@@ -79,38 +81,20 @@ function getModalStyle() {
   };
 }
 
-export const ScoreBreakdown = ({ candidate, colour, isLocalBoard }) => {
+export const ScoreBreakdown = ({ candidate, colour, type }) => {
   const classes = useStyles();
   let openModal = false;
   const query = qs.parse(history.location.search);
 
-  if (
-    history.location.search.includes('&candidate=') &&
-    candidate.surname === query.candidate
-  ) {
+  if (`${type}-${candidate.surname}` === query.candidate) {
     openModal = true;
   }
 
   const [open, setOpen] = React.useState(openModal);
   const [modalStyle] = React.useState(getModalStyle);
 
-  const updateQuery = () => {
-    console.log(history.location);
-    const search = `${history.location.search}&candidate=${candidate.surname}`;
-    history.push(history.location.pathname + search);
-  };
-
-  const removeCandidateFromQuery = () => {
-    const search = history.location.search.substring(
-      0,
-      history.location.search.indexOf('&candidate')
-    );
-
-    history.push(history.location.pathname + search);
-  };
-
   const handleOpen = () => {
-    updateQuery();
+    addCandidateToQuery(type, candidate.surname);
     setOpen(true);
   };
 
@@ -146,7 +130,10 @@ export const ScoreBreakdown = ({ candidate, colour, isLocalBoard }) => {
               </div>
             ) : null}
           </div>
-          <QuestionTabs candidate={candidate} isLocalBoard={isLocalBoard} />
+          <QuestionTabs
+            candidate={candidate}
+            isLocalBoard={type === candidateType.LOCAL_BOARD}
+          />
         </div>
       </Modal>
     </div>

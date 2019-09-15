@@ -6,8 +6,7 @@ const styles = {
   scores: {
     display: 'flex',
     flexWrap: 'wrap',
-    flexDirection: 'column',
-    height: '500px'
+    flexDirection: 'column'
   }
 };
 

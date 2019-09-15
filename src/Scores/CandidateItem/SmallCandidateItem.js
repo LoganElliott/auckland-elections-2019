@@ -4,6 +4,7 @@ import * as PropTypes from 'prop-types';
 import { OverallGrade } from './OverallGrade';
 import { CandidateName } from './CandidateName';
 import { CandidateImage } from './CandidateImage';
+import { SmallBreakdown } from './SmallBreakdown';
 
 const height = '175px';
 
@@ -20,7 +21,18 @@ const styles = {
     flexWrap: 'wrap',
     alignItems: 'center',
     backgroundColor: 'white',
-    margin: '20px 0'
+    margin: '20px 0',
+    maxWidth: '100%'
+  },
+  infoWrapper: {
+    display: 'flex',
+    flex: 1,
+    flexWrap: 'wrap',
+    maxWidth: '100%'
+  },
+  name: {
+    flex: 1,
+    minWidth: '250px'
   }
 };
 
@@ -31,16 +43,22 @@ const CandidateInfo = ({ candidate }) => (
   </div>
 );
 
-export const SmallCandidateItem = ({ candidate, colour, isLocalBoard }) => (
+export const SmallCandidateItem = ({ candidate, colour, type }) => (
   <div
     style={{
       ...styles.wrapper
     }}
+    id={`${type}-${candidate.surname}`}
   >
-    <CandidateInfo candidate={candidate} />
-    <div style={{ backgroundColor: colour, flex: 1 }}>
-      <CandidateName candidate={candidate} />
+    <div style={styles.infoWrapper}>
+      <CandidateInfo candidate={candidate} />
+      <div style={{ ...styles.name, ...{ backgroundColor: colour } }}>
+        <CandidateName candidate={candidate} />
+      </div>
     </div>
+    {candidate.overallGrade ? (
+      <SmallBreakdown candidate={candidate} type={type} colour={colour} />
+    ) : null}
   </div>
 );
 

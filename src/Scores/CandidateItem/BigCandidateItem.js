@@ -37,22 +37,19 @@ export const CandidateInfo = ({ candidate }) => (
   </div>
 );
 
-export const BigCandidateItem = ({ candidate, colour, isLocalBoard }) => (
+export const BigCandidateItem = ({ candidate, colour, type }) => (
   <div
     style={{
       ...styles.wrapper,
       width: candidate.overallGrade ? '1000px' : 'fit-content',
       minWidth: '800px'
     }}
+    id={`${type}-${candidate.surname}`}
   >
     <CandidateInfo candidate={candidate} />
     <div style={{ ...styles.rightSide, backgroundColor: colour }}>
       {candidate.overallGrade ? (
-        <ScoreBreakdown
-          candidate={candidate}
-          colour={colour}
-          isLocalBoard={isLocalBoard}
-        />
+        <ScoreBreakdown candidate={candidate} colour={colour} type={type} />
       ) : null}
       <OverallGrade overallGrade={candidate.overallGrade} />
     </div>

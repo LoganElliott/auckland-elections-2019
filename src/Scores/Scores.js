@@ -52,7 +52,7 @@ const SubHeading = ({ ward, localBoard, subdivision }) => (
   </div>
 );
 
-export const Scores = () => {
+export function Scores() {
   return (
     <MyContext.Consumer>
       {({ votingInformation }) => {
@@ -79,4 +79,4 @@ export const Scores = () => {
       }}
     </MyContext.Consumer>
   );
-};
+}

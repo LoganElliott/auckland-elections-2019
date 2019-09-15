@@ -5,7 +5,7 @@ const styles = {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    color: 'black'
+    color: 'black',
   },
   scoreWrapper: {
     borderRadius: '50%',
@@ -29,6 +29,6 @@ export const OverallGrade = ({ overallGrade }) => (
     <div style={styles.scoreWrapper}>
       <div style={styles.score}>{overallGrade || '😞'}</div>
     </div>
-    {overallGrade ? null : 'Declined interview'}
+    {overallGrade ? null : 'Declined participation'}
   </div>
 );
