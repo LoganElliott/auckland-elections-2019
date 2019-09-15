@@ -104,11 +104,31 @@ export const QuestionTabs = ({ candidate, isLocalBoard }) => {
           classes={{ flexContainer: 'spaceTabContent' }}
           variant="fullWidth"
         >
-          <Tab label="Transport" icon={transport} {...a11yProps(0)} />
-          <Tab label="Urban Form" icon={house} {...a11yProps(1)} />
-          <Tab label="Environment" icon={environment} {...a11yProps(2)} />
+          <Tab
+            classes={{ labelIcon: 'tabLabel' }}
+            label="Transport"
+            icon={transport}
+            {...a11yProps(0)}
+          />
+          <Tab
+            classes={{ labelIcon: 'tabLabel' }}
+            label="Urban Form"
+            icon={house}
+            {...a11yProps(1)}
+          />
+          <Tab
+            classes={{ labelIcon: 'tabLabel' }}
+            label="Environment"
+            icon={environment}
+            {...a11yProps(2)}
+          />
           {!isLocalBoard ? (
-            <Tab label="Competency" icon={competence} {...a11yProps(3)} />
+            <Tab
+              classes={{ labelIcon: 'tabLabel' }}
+              label="Competency"
+              icon={competence}
+              {...a11yProps(3)}
+            />
           ) : null}
         </Tabs>
       </AppBar>

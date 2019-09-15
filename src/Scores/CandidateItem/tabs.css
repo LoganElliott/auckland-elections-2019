@@ -1,3 +1,15 @@
 .spaceTabContent {
     justify-content: space-evenly;
 }
+
+@media (min-width:1150px) {
+    .tabLabel {
+        font-size: 14px !important;
+    }
+}
+
+@media (max-width: 900px) {
+    .tabLabel {
+        font-size: 10px !important;
+    }
+}
