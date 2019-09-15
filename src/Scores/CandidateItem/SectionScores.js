@@ -14,7 +14,8 @@ export const SectionScores = ({
   sectionNumber,
   sectionTitle,
   questions,
-  candidate
+  candidate,
+  isLocalBoard
 }) => (
   <div style={styles.scores}>
     <TotalScore
@@ -26,6 +27,7 @@ export const SectionScores = ({
         key={index + 1}
         question={question}
         score={candidate[`q${index + 1}`]}
+        isLocalBoard={isLocalBoard}
       />
     ))}
   </div>

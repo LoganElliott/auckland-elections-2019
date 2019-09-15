@@ -6,9 +6,12 @@ const styles = {
   margin: '16px'
 };
 
-export const QuestionScore = ({ question, score }) => (
+export const QuestionScore = ({ question, score, isLocalBoard }) => (
   <div style={styles}>
     <div>{question}</div>
-    <LinearProgress variant="determinate" value={score * 10} />
+    <LinearProgress
+      variant="determinate"
+      value={score * (isLocalBoard ? 20 : 10)}
+    />
   </div>
 );
