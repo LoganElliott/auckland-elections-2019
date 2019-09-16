@@ -11,6 +11,7 @@ import { About } from './About/About';
 
 import { MyContext } from './MyContext';
 import { about, howWeScored, root, scores } from './Contants/routes';
+import { HowWeScored } from './HowWeScored/HowWeScored';
 
 class App extends Component {
   constructor(props) {
@@ -52,7 +53,7 @@ class App extends Component {
           <Route path={root} exact component={Contents} />
           <Route path={scores} component={Scores} />
           <Route path={about} component={About} />
-          <Route path={howWeScored} component={About} />
+          <Route path={howWeScored} component={HowWeScored} />
         </MyContext.Provider>
       </Router>
     );

@@ -126,7 +126,7 @@ export const ScoreBreakdown = ({ candidate, colour, type }) => {
                 }}
               >
                 <div style={styles.quote}>{candidate.candidateSummary}</div>
-                <div>MARKERS CONSENSUS</div>
+                <div>MARKERS' CONSENSUS</div>
               </div>
             ) : null}
           </div>

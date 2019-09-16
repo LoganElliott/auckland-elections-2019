@@ -13,49 +13,16 @@ import Box from '@material-ui/core/Box';
 import * as PropTypes from 'prop-types';
 
 import './tabs.css';
-
-const transportQuestions = [
-  'Transport budget breakdown',
-  'Lowering speed limits',
-  'Top 3 Transport projects',
-  'Achieving modal shift',
-  'Support for tactical urbanism',
-  'Stance on micromobility',
-  'Public transport fares'
-];
-
-const localBoardTransportQuestions = [
-  'Local Board Transport Capital Fund',
-  'Lowering speed limits',
-  'Support for tactical urbanism',
-  'Safe Cycling Infrastructure',
-  'Stance on micromobility'
-];
-
-const urbanFormQuestions = [
-  'Housing supply and affordability',
-  'Accelerating Kiwibuild',
-  'Building construction and function'
-];
-
-const localBoardUrbanFormQuestions = [
-  'Compact City Model and Unitary Plan',
-  'Green Buildings'
-];
-
-const environmentQuestions = [
-  'Open spaces and streetscapes',
-  'Improving pedestrian environment',
-  'Reducing consumption and waste',
-  'Keeping to 1.5 and the climate emergency',
-  'Just transition for mitigation and adaptation'
-];
-
-const localBoardEnvironmentQuestions = [
-  'Open Spaces and streetscapes',
-  'Keeping to 1.5 and the climate emergency',
-  'Vision for Climate Zero Auckland'
-];
+import {
+  CompetencyQuestion,
+  environmentQuestions,
+  localBoardEnvironmentQuestions,
+  localBoardTransportQuestions,
+  localBoardUrbanFormQuestions,
+  transportQuestions,
+  urbanFormQuestions
+} from '../../Contants/questions';
+import { QuestionScore } from './QuestionScore';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -166,7 +133,17 @@ export const QuestionTabs = ({ candidate, isLocalBoard }) => {
         />
       </TabPanel>
       <TabPanel value={value} index={3}>
-        <TotalScore sectionTitle={'Competence'} score={candidate[`s4Score`]} />
+        <SectionScores
+          questions={CompetencyQuestion}
+          sectionNumber={4}
+          sectionTitle={'Competence'}
+          candidate={candidate}
+        />
+        <QuestionScore
+          key={2}
+          question={'Competence Rating'}
+          score={candidate.competenceRating}
+        />
       </TabPanel>
     </div>
   );

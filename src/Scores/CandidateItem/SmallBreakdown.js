@@ -44,7 +44,7 @@ export const SmallBreakdown = ({ candidate, type, colour }) => {
             }}
           >
             <div style={styles.quote}>{candidate.candidateSummary}</div>
-            <div>MARKERS CONSENSUS</div>
+            <div>MARKERS' CONSENSUS</div>
           </div>
         </div>
       ) : null}
