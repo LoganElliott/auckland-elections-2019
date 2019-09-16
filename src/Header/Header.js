@@ -12,7 +12,7 @@ import { Colours } from '../Contants/Colours';
 import { ReactComponent as GzLogo } from './gz.svg';
 import { AddressSearcher } from '../AddressSearcher';
 import { MyContext } from '../MyContext';
-import { about, howWeScored, root } from '../Contants/routes';
+import { about, howWeScored, root, thanks } from '../Contants/routes';
 
 const styles = {
   wrapper: {
@@ -96,6 +96,7 @@ const PageMenu = ({ updateAddress }) => {
           How we scored
         </MenuItem>
         <MenuItem onClick={() => handleClose(about)}>About us</MenuItem>
+        <MenuItem onClick={() => handleClose(thanks)}>Thanks!</MenuItem>
       </Menu>
     </>
   );

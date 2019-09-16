@@ -23,7 +23,6 @@ export const UrbanForm = () => (
     <ExpansionPanel>
       <ExpansionPanelSummary
         expandIcon={<ExpandMoreIcon />}
-        aria-controls="panel1a-content"
         id="panel1a-header"
       >
         Question 8
@@ -54,7 +53,6 @@ export const UrbanForm = () => (
     <ExpansionPanel>
       <ExpansionPanelSummary
         expandIcon={<ExpandMoreIcon />}
-        aria-controls="panel1a-content"
         id="panel1a-header"
       >
         Question 9
@@ -80,7 +78,6 @@ export const UrbanForm = () => (
     <ExpansionPanel>
       <ExpansionPanelSummary
         expandIcon={<ExpandMoreIcon />}
-        aria-controls="panel1a-content"
         id="panel1a-header"
       >
         Question 10

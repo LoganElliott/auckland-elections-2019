@@ -23,7 +23,6 @@ export const Environment = () => (
     <ExpansionPanel>
       <ExpansionPanelSummary
         expandIcon={<ExpandMoreIcon />}
-        aria-controls="panel1a-content"
         id="panel1a-header"
       >
         Question 11
@@ -52,7 +51,6 @@ export const Environment = () => (
     <ExpansionPanel>
       <ExpansionPanelSummary
         expandIcon={<ExpandMoreIcon />}
-        aria-controls="panel1a-content"
         id="panel1a-header"
       >
         Question 12
@@ -82,7 +80,6 @@ export const Environment = () => (
     <ExpansionPanel>
       <ExpansionPanelSummary
         expandIcon={<ExpandMoreIcon />}
-        aria-controls="panel1a-content"
         id="panel1a-header"
       >
         Question 13
@@ -109,7 +106,6 @@ export const Environment = () => (
     <ExpansionPanel>
       <ExpansionPanelSummary
         expandIcon={<ExpandMoreIcon />}
-        aria-controls="panel1a-content"
         id="panel1a-header"
       >
         Question 14
@@ -141,7 +137,6 @@ export const Environment = () => (
     <ExpansionPanel>
       <ExpansionPanelSummary
         expandIcon={<ExpandMoreIcon />}
-        aria-controls="panel1a-content"
         id="panel1a-header"
       >
         Question 15

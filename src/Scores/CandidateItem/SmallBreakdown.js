@@ -62,7 +62,6 @@ export const SmallBreakdown = ({ candidate, type, colour }) => {
       >
         <ExpansionPanelSummary
           expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel1a-content"
           id="panel1a-header"
         >
           SCORE BREAKDOWN

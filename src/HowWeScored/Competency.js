@@ -23,7 +23,6 @@ export const Competency = () => (
     <ExpansionPanel>
       <ExpansionPanelSummary
         expandIcon={<ExpandMoreIcon />}
-        aria-controls="panel1a-content"
         id="panel1a-header"
       >
         Question 15
@@ -51,7 +50,6 @@ export const Competency = () => (
     <ExpansionPanel>
       <ExpansionPanelSummary
         expandIcon={<ExpandMoreIcon />}
-        aria-controls="panel1a-content"
         id="panel1a-header"
       >
         General Competency

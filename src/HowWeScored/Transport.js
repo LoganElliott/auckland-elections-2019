@@ -25,7 +25,6 @@ export const Transport = () => (
     <ExpansionPanel>
       <ExpansionPanelSummary
         expandIcon={<ExpandMoreIcon />}
-        aria-controls="panel1a-content"
         id="panel1a-header"
       >
         Question 1
@@ -74,7 +73,6 @@ export const Transport = () => (
     <ExpansionPanel>
       <ExpansionPanelSummary
         expandIcon={<ExpandMoreIcon />}
-        aria-controls="panel1a-content"
         id="panel1a-header"
       >
         Question 2
@@ -102,7 +100,6 @@ export const Transport = () => (
     <ExpansionPanel>
       <ExpansionPanelSummary
         expandIcon={<ExpandMoreIcon />}
-        aria-controls="panel1a-content"
         id="panel1a-header"
       >
         Question 3
@@ -131,7 +128,6 @@ export const Transport = () => (
     <ExpansionPanel>
       <ExpansionPanelSummary
         expandIcon={<ExpandMoreIcon />}
-        aria-controls="panel1a-content"
         id="panel1a-header"
       >
         Question 4
@@ -163,7 +159,6 @@ export const Transport = () => (
     <ExpansionPanel>
       <ExpansionPanelSummary
         expandIcon={<ExpandMoreIcon />}
-        aria-controls="panel1a-content"
         id="panel1a-header"
       >
         Question 5
@@ -192,7 +187,6 @@ export const Transport = () => (
     <ExpansionPanel>
       <ExpansionPanelSummary
         expandIcon={<ExpandMoreIcon />}
-        aria-controls="panel1a-content"
         id="panel1a-header"
       >
         Question 6
@@ -222,7 +216,6 @@ export const Transport = () => (
     <ExpansionPanel>
       <ExpansionPanelSummary
         expandIcon={<ExpandMoreIcon />}
-        aria-controls="panel1a-content"
         id="panel1a-header"
       >
         Question 7
