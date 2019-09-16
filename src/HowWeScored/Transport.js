@@ -5,6 +5,8 @@ import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { Question } from './Question';
 import transport from '../Contants/transport';
+import ATAP from './ATAP.png';
+import Renewals from './Renewals.png';
 
 export const Transport = () => (
   <Fragment>
@@ -29,25 +31,44 @@ export const Transport = () => (
         Question 1
       </ExpansionPanelSummary>
       <ExpansionPanelDetails>
-        <Question
-          preamble="Here is a chart of ATAP’s planned expenditure (as of 2018) for
+        <div>
+          <img src={ATAP} style={{ width: '100%', maxWidth: '800px' }} />
+          <a
+            href="https://www.transport.govt.nz/assets/Uploads/Land/Documents/7bbf7cd0db/ATAP2018.pdf"
+            aria-label="Image source"
+            style={{ padding: '8px' }}
+          >
+            Source
+          </a>
+          <img src={Renewals} style={{ width: '100%', maxWidth: '800px' }} />
+          <a
+            href="https://www.transport.govt.nz/assets/Uploads/Land/Documents/26f5ef6cfa/ATAP-MOR-Report.pdf"
+            aria-label="Image source"
+            style={{ padding: '8px' }}
+          >
+            Source
+          </a>
+
+          <Question
+            preamble="Here is a chart of ATAP’s planned expenditure (as of 2018) for
         transport funding under Auckland Council."
-          question="What do you make of
+            question="What do you make of
         the budget breakdown in the Auckland Transport Alignment Project?"
-          goodAnswers={[
-            'This is an improvement over historic spending',
-            'We need a bigger increase in PT and active modes',
-            'Still too much spent on roads, especially large ticket roads (penlink, mill road, east west link etc)',
-            'More on safety'
-          ]}
-          badAnswers={[
-            'Looks fine',
-            'More road spending required',
-            'Less spending on everything except roads',
-            'Meme future technology mention (self driving cars, drones, AI, monorail)',
-            'Auckland Transport is acting against the interests of the people/constituents'
-          ]}
-        />
+            goodAnswers={[
+              'This is an improvement over historic spending',
+              'We need a bigger increase in PT and active modes',
+              'Still too much spent on roads, especially large ticket roads (penlink, mill road, east west link etc)',
+              'More on safety'
+            ]}
+            badAnswers={[
+              'Looks fine',
+              'More road spending required',
+              'Less spending on everything except roads',
+              'Meme future technology mention (self driving cars, drones, AI, monorail)',
+              'Auckland Transport is acting against the interests of the people/constituents'
+            ]}
+          />
+        </div>
       </ExpansionPanelDetails>
     </ExpansionPanel>
     <ExpansionPanel>

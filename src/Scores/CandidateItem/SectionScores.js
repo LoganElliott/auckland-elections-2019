@@ -2,6 +2,8 @@ import React from 'react';
 import { QuestionScore } from './QuestionScore';
 import { TotalScore } from './TotalScore';
 
+import './SectionScores.css';
+
 const styles = {
   scores: {
     display: 'flex',
@@ -17,7 +19,7 @@ export const SectionScores = ({
   candidate,
   isLocalBoard
 }) => (
-  <div style={styles.scores}>
+  <div style={styles.scores} className="sectionScores">
     <TotalScore
       sectionTitle={sectionTitle}
       score={candidate[`s${sectionNumber}Score`]}
