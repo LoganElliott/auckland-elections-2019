@@ -4,10 +4,22 @@ import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { Question } from './Question';
+import transport from '../Contants/transport';
 
 export const Transport = () => (
   <Fragment>
-    <h1>Transport (40%)</h1>
+    <div
+      style={{
+        padding: '8px',
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center'
+      }}
+    >
+      <div style={{ margin: '8px' }}>{transport}</div>
+      <h1>Transport (40%)</h1>
+    </div>
     <ExpansionPanel>
       <ExpansionPanelSummary
         expandIcon={<ExpandMoreIcon />}

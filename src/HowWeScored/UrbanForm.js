@@ -4,10 +4,22 @@ import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { Question } from './Question';
+import house from '../Contants/house';
 
 export const UrbanForm = () => (
   <Fragment>
-    <h1>Urban Form (25%)</h1>
+    <div
+      style={{
+        padding: '8px',
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center'
+      }}
+    >
+      <div style={{ margin: '8px' }}>{house}</div>
+      <h1>Urban Form (25%)</h1>
+    </div>
     <ExpansionPanel>
       <ExpansionPanelSummary
         expandIcon={<ExpandMoreIcon />}
