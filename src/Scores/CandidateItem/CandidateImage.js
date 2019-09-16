@@ -12,7 +12,7 @@ export const CandidateImage = ({ candidate }) => {
     const lastName =
       lowerCaseLastName.charAt(0).toUpperCase() + lowerCaseLastName.slice(1);
 
-    return `${firstName}-${lastName}.png`;
+    return `${firstName}-${lastName}.jpg`;
   };
 
   return (
