@@ -6,7 +6,6 @@ import house from '../../Contants/house';
 import environment from '../../Contants/environment';
 import competence from '../../Contants/competence';
 import { SectionScores } from './SectionScores';
-import { TotalScore } from './TotalScore';
 import React from 'react';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';

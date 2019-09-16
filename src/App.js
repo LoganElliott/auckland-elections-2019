@@ -39,6 +39,10 @@ class App extends Component {
   }
 
   render() {
+    if (window.location.host === 'aucklandelections.co.nz') {
+      return <div>2019 Coming soon!</div>;
+    }
+
     return (
       <Router history={history}>
         <MyContext.Provider
