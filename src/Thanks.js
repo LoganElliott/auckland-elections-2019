@@ -33,9 +33,10 @@ export const Thanks = () => (
       Thank you to our web developer Logan and backend developer Asher for
       making this website
     </div>
-
+    Any questions, comments or problems email us at{' '}
     <a href="mailto: auckland@generationzero.org.nz">
-      Any questions, comments or problems email us!
+      auckland@generationzero.org.nz
     </a>
+    !
   </div>
 );
