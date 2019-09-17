@@ -176,7 +176,7 @@ export const Transport = () => (
           preamble="Tactical urbanism is gaining popularity in making small and cheap, but meaningful improvements to our city."
           question="How can Auckland better utilise tactical urbanism practises to benefit the city?"
           highScoringAnswers={[
-            'Knows what tactical urbanism is (demonstrating how an urban environment can be improved--e.g. spots on Shortland Street, plastic planter boxes protecting footpaths, etc.)',
+            'Knows what tactical urbanism is (demonstrating how an urban environment can be improved--e.g. spots on Shortland Street, planter boxes protecting footpaths, etc.)',
             'Gives examples: painted cycleways, planters, temporarily closing streets etc.',
             'Supports tactical urbanism and has specific ideas for where it could be used',
             'Current progress is too slow, and tactical urbanism will speed it up',

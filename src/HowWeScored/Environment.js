@@ -113,7 +113,7 @@ export const Environment = () => (
       <ExpansionPanelDetails>
         <Question
           preamble="Auckland Council has recently declared a state of climate emergency."
-          question="What local efforts must be prioritised under this declared climate emergency to help Auckland avoid contributing to a global average temperature rise above 1.5 degrees? What specific projects would you want to prioritise to address the climate emergency and keep within 1.5?"
+          question="What local efforts must be prioritised under this declared climate emergency to help Auckland avoid contributing to a global average temperature rise above 1.5°C degrees? What specific projects would you want to prioritise to address the climate emergency and keep within 1.5?"
           highScoringAnswers={[
             'Understands what should be prioritised: public transport (first and foremost) etc..',
             'Understands the need for both prevention (measures to overall reduce CO2 emission to zero) and mitigation',
@@ -143,38 +143,7 @@ export const Environment = () => (
       </ExpansionPanelSummary>
       <ExpansionPanelDetails>
         <Question
-          preamble="Auckland Council has recently declared a state of climate emergency."
-          question="What local efforts must be prioritised under this declared climate emergency to help Auckland avoid contributing to a global average temperature rise above 1.5 degrees? What specific projects would you want to prioritise to address the climate emergency and keep within 1.5?"
-          highScoringAnswers={[
-            'Understands what should be prioritised: public transport (first and foremost) etc..',
-            'Understands the need for both prevention (measures to overall reduce CO2 emission to zero) and mitigation',
-            'Action needs to come from all areas under council control (CCOs, local boards, etc)'
-          ]}
-          lowScoringAnswers={[
-            'Don’t need to change anything',
-            'Not an emergency',
-            'Technology will get us out of this',
-            'repeats things from other questions (hasn’t learnt anything)',
-            'Need more research/information',
-            'Focuses on individual responsibility rather than councils responsibility ',
-            'Auckland has a small role in contributing to avoiding an excess of 1.5 degrees, expresses that this is more of a global issue that has more of a role',
-            'People are not ready for change',
-            'Unfair on the people to force them to change',
-            'Council should not intervene in other peoples’ lives'
-          ]}
-        />
-      </ExpansionPanelDetails>
-    </ExpansionPanel>
-    <ExpansionPanel>
-      <ExpansionPanelSummary
-        expandIcon={<ExpandMoreIcon />}
-        id="panel1a-header"
-      >
-        Question 15
-      </ExpansionPanelSummary>
-      <ExpansionPanelDetails>
-        <Question
-          preamble="Our most marginalised communities in Auckland such as Maori, Pasifika, and low-income groups are disproportionately affected by the adverse consequences of climate change."
+          preamble="Our most marginalised communities in Auckland such as Māori, Pasifika, and low-income groups are disproportionately affected by the adverse consequences of climate change."
           question="What is your vision for ensuring a just transition for adaptation and mitigation regarding climate change?"
           highScoringAnswers={[
             'Clear understanding of just transition: ensuring actions to mitigating and adapting to climate change are equitable. ',

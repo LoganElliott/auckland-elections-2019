@@ -42,10 +42,10 @@ export const UrbanForm = () => (
             'Talks about ensuring quality (while still being fully supportive of density)'
           ]}
           lowScoringAnswers={[
-            'Sprawl',
+            'Sprawl - extending Auckland housing beyond the existing regional limits',
             'Remove rural urban boundary',
             'Nimby - “ok to densify city centre, but nowhere else”',
-            'Bad reference to RMA reforms e.g. removing environmental protections'
+            'Bad reference to Resource Management Act reforms e.g. removing environmental protections'
           ]}
         />
       </ExpansionPanelDetails>
