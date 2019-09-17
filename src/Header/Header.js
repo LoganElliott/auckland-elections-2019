@@ -71,7 +71,7 @@ const styles = {
 const Sharing = () => {
   const title =
     'See how Generation Zero scored your representatives on Transport, Urban From and the environment #aucklandelections';
-  const shareUrl = 'aucklandelections.co.nz';
+  const shareUrl = 'https://aucklandelections.co.nz';
   return (
     <div style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap' }}>
       <FacebookShareButton url={shareUrl} quote={title}>

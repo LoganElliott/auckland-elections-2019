@@ -52,13 +52,6 @@ class App extends Component {
   }
 
   render() {
-    if (window.location.host === 'aucklandelections.co.nz') {
-      document.location.replace(
-        'https://www.facebook.com/events/2241650212612806/'
-      );
-      return <div>2019 Coming soon!</div>;
-    }
-
     return (
       <Router history={history}>
         <MyContext.Provider
