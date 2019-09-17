@@ -61,13 +61,13 @@ export const Transport = () => (
         transport funding under Auckland Council."
             question="What do you make of
         the budget breakdown in the Auckland Transport Alignment Project?"
-            goodAnswers={[
+            highScoringAnswers={[
               'This is an improvement over historic spending',
               'We need a bigger increase in PT and active modes',
               'Still too much spent on roads, especially large ticket roads (penlink, mill road, east west link etc)',
               'More on safety'
             ]}
-            badAnswers={[
+            lowScoringAnswers={[
               'Looks fine',
               'More road spending required',
               'Less spending on everything except roads',
@@ -89,13 +89,13 @@ export const Transport = () => (
         <Question
           preamble="The number of deaths on New Zealand (and Auckland) roads has been increasing the last few years. Auckland Transport aims to implement a Vision Zero policy. “Vision Zero” is a policy which pushes for having zero preventable deaths on our roads."
           question="As part of Vision Zero, Auckland Transport has proposed lowering speed limits on many rural roads and in town centres. Where do you stand on the proposed speed limit reductions?"
-          goodAnswers={[
+          highScoringAnswers={[
             'Prioritising safety over speed for roads',
             'Looking for support on 30km/h in Town and City Centres, residential streets',
             'Supports 80km/h on rural roads.',
             'Supports more medians barriers'
           ]}
-          badAnswers={[
+          lowScoringAnswers={[
             'Does not support and does not know what vision zero is',
             'Blames driver, not roading system',
             'Concerned this will worsen the economy',
@@ -115,7 +115,7 @@ export const Transport = () => (
       <ExpansionPanelDetails>
         <Question
           question="Can you name three transport projects (planned, proposed, or your own ideas) you believe will benefit Auckland the most?"
-          goodAnswers={[
+          highScoringAnswers={[
             'CRL',
             'Light Rail',
             'Busways/bus lane',
@@ -123,7 +123,7 @@ export const Transport = () => (
             'Points for mobility and low carbon options',
             'Expresses urgency for specific projects'
           ]}
-          badAnswers={[
+          lowScoringAnswers={[
             'Mill Rd',
             'Penlink',
             'Autonomous cars',
@@ -144,13 +144,13 @@ export const Transport = () => (
         <Question
           preamble="Auckland has historically spent the majority of transport funding on car infrastructure. Recently, Auckland Transport and the Ministry of Transport has committed to a modal shift to active transport and public transit (As seen in question 1). This would help NZ achieve its emissions reduction targets under the Paris Agreement."
           question="What specific policies, projects and actions would you undertake to facilitate and encourage this modal shift?"
-          goodAnswers={[
+          highScoringAnswers={[
             'Supports modal shift',
             'Says we need to do more to fulfil our targets',
             'Current plans are too slow',
             'Mentions bus lanes/bike lanes, reducing space available to cars and increasing space for other modes, making public transport more affordable'
           ]}
-          badAnswers={[
+          lowScoringAnswers={[
             'Avoids being definitively against/for modal shift',
             'Against modal shift, need to focus on providing space for cars',
             'Happy to entertain other modes, but not willing to sacrifice space for cars',
@@ -175,14 +175,14 @@ export const Transport = () => (
         <Question
           preamble="Tactical urbanism is gaining popularity in making small and cheap, but meaningful improvements to our city."
           question="How can Auckland better utilise tactical urbanism practises to benefit the city?"
-          goodAnswers={[
+          highScoringAnswers={[
             'Knows what tactical urbanism is (demonstrating how an urban environment can be improved--e.g. spots on Shortland Street, plastic planter boxes protecting footpaths, etc.)',
             'Gives examples: painted cycleways, planters, temporarily closing streets etc.',
             'Supports tactical urbanism and has specific ideas for where it could be used',
             'Current progress is too slow, and tactical urbanism will speed it up',
             'Sees trialling as a good option for getting people used to road space reallocation (without reliance on inadequate consultation which is generally not representative)'
           ]}
-          badAnswers={[
+          lowScoringAnswers={[
             'They don’t know what tactical urbanism is',
             'Sees no use for it in Auckland',
             'Doesn’t like the idea as it reduces space for cars',
@@ -203,7 +203,7 @@ export const Transport = () => (
         <Question
           preamble="Over the past two years we have seen an explosion of micro-mobility (i.e. bikes, e-scooters, share schemes etc) in Auckland."
           question="What is your stance on micro-mobility options? "
-          goodAnswers={[
+          highScoringAnswers={[
             'Supports micro-mobility and ride-share',
             'Provisions - dedicated virtual parking places, ',
             'Highlight the need for more bike /micro-mobility lanes',
@@ -212,7 +212,7 @@ export const Transport = () => (
             'Safety - encourages separate safe spaces (e.g. bike lanes)',
             'Companies accountable for safety'
           ]}
-          badAnswers={[
+          lowScoringAnswers={[
             'Should be banned, no way for these modes to be safe ',
             'Ruining our city centres',
             'Overestimates the dangers of micro-mobility compared to motor vehicle use',
@@ -232,7 +232,7 @@ export const Transport = () => (
         <Question
           preamble="Earlier this year we (Generation Zero) campaigned to ‘Freeze the Fares’. As a result, the council is introducing free fares for under 16s on weekends from September the 1st."
           question="Are you familiar with the Freeze the Fares campaign? Do you support free fares for under 16s on weekends being extended to all ages? Do you think we should introduce other fare structures like daily fare caps?"
-          goodAnswers={[
+          highScoringAnswers={[
             'Support the freeze the fares campaign',
             'Support a fare structure which incentivises PT',
             'Clear knowledge of what we proposed',
@@ -240,7 +240,7 @@ export const Transport = () => (
             'Any answer that reduces cost of PT',
             'Highlights how PT is unaffordable and for other groups'
           ]}
-          badAnswers={[
+          lowScoringAnswers={[
             'Do not support free weekends',
             'Does not support public transport investment',
             'Sees it as a commodity rather than public good',

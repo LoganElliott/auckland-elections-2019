@@ -3,8 +3,8 @@ import React, { Fragment } from 'react';
 export const Question = ({
   preamble,
   question,
-  goodAnswers,
-  badAnswers,
+  highScoringAnswers,
+  lowScoringAnswers,
   answers
 }) => (
   <div style={{ padding: '0 12px' }}>
@@ -16,21 +16,21 @@ export const Question = ({
     ) : null}
     <h2>Question</h2>
     <h3>{question}</h3>
-    {goodAnswers ? (
+    {highScoringAnswers ? (
       <Fragment>
-        <h4>Good Answers</h4>
+        <h4>High Scoring Answers</h4>
         <ul>
-          {goodAnswers.map((answer, index) => (
+          {highScoringAnswers.map((answer, index) => (
             <li key={index}>{answer}</li>
           ))}
         </ul>
       </Fragment>
     ) : null}
-    {badAnswers ? (
+    {lowScoringAnswers ? (
       <Fragment>
-        <h4>Bad Answers</h4>
+        <h4>Low Scoring Answers</h4>
         <ul>
-          {badAnswers.map((answer, index) => (
+          {lowScoringAnswers.map((answer, index) => (
             <li key={index}>{answer}</li>
           ))}
         </ul>

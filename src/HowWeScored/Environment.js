@@ -30,14 +30,14 @@ export const Environment = () => (
       <ExpansionPanelDetails>
         <Question
           question="Do you believe that Auckland’s streetscapes and open spaces are serving the needs of Aucklanders to the fullest? What do you think can be done to improve their value and function?"
-          goodAnswers={[
+          highScoringAnswers={[
             'More accessible for pedestrians',
             'More daylighting of streams - riparian management, greenways',
             'More forest/trees, less grass/field - greater biodiversity and carbon sink',
             'Street trees',
             'Council run events (or any events) in public spaces'
           ]}
-          badAnswers={[
+          lowScoringAnswers={[
             '“Streets are for cars”',
             'Wider car lanes',
             'Think that Auckland open spaces are already functioning at their full capacity',
@@ -59,14 +59,14 @@ export const Environment = () => (
         <Question
           preamble="There is growing pressure for improving the city centre pedestrian environment and accessibility by restricting through-routing of vehicular traffic. This includes fully pedestrianising some streets such as Queen Street and High Street."
           question="How well does this align with your vision for the City Centre? Do you see improving the pedestrian environment and accessibility as something that we should be extending to other centres in Auckland?"
-          goodAnswers={[
+          highScoringAnswers={[
             'Places importance of pedestrians over cars',
             'Supports the idea and is a priority',
             'Wants to see it implemented in other centres',
             'Mentions of tactical urbanism',
             'Provides examples of places that this can be extended to'
           ]}
-          badAnswers={[
+          lowScoringAnswers={[
             'More concrete and cars',
             'Doesn’t support it',
             'Concerns over taking away parking',
@@ -88,13 +88,13 @@ export const Environment = () => (
         <Question
           preamble="Auckland Council has so far been fairly good at recycling and is working on a city-wide composting scheme. Despite this, there is still a significant problem with waste from over-consumption in Auckland."
           question="To address this, how can Auckland Council help households and businesses reduce consumption and overall waste production?"
-          goodAnswers={[
+          highScoringAnswers={[
             'Product stewardship - producers taking responsibility for the lifecycle of products',
             'Reduction in construction waste',
             'Better regulation around food packaging',
             'Roll out compost'
           ]}
-          badAnswers={[
+          lowScoringAnswers={[
             'Thinks recycling is enough',
             'Cannot think of any initiatives',
             'Consumer’s responsibility - council has no/little role',
@@ -114,12 +114,12 @@ export const Environment = () => (
         <Question
           preamble="Auckland Council has recently declared a state of climate emergency."
           question="What local efforts must be prioritised under this declared climate emergency to help Auckland avoid contributing to a global average temperature rise above 1.5 degrees? What specific projects would you want to prioritise to address the climate emergency and keep within 1.5?"
-          goodAnswers={[
+          highScoringAnswers={[
             'Understands what should be prioritised: public transport (first and foremost) etc..',
             'Understands the need for both prevention (measures to overall reduce CO2 emission to zero) and mitigation',
             'Action needs to come from all areas under council control (CCOs, local boards, etc)'
           ]}
-          badAnswers={[
+          lowScoringAnswers={[
             'Don’t need to change anything',
             'Not an emergency',
             'Technology will get us out of this',
@@ -145,12 +145,12 @@ export const Environment = () => (
         <Question
           preamble="Auckland Council has recently declared a state of climate emergency."
           question="What local efforts must be prioritised under this declared climate emergency to help Auckland avoid contributing to a global average temperature rise above 1.5 degrees? What specific projects would you want to prioritise to address the climate emergency and keep within 1.5?"
-          goodAnswers={[
+          highScoringAnswers={[
             'Understands what should be prioritised: public transport (first and foremost) etc..',
             'Understands the need for both prevention (measures to overall reduce CO2 emission to zero) and mitigation',
             'Action needs to come from all areas under council control (CCOs, local boards, etc)'
           ]}
-          badAnswers={[
+          lowScoringAnswers={[
             'Don’t need to change anything',
             'Not an emergency',
             'Technology will get us out of this',
@@ -176,13 +176,13 @@ export const Environment = () => (
         <Question
           preamble="Our most marginalised communities in Auckland such as Maori, Pasifika, and low-income groups are disproportionately affected by the adverse consequences of climate change."
           question="What is your vision for ensuring a just transition for adaptation and mitigation regarding climate change?"
-          goodAnswers={[
+          highScoringAnswers={[
             'Clear understanding of just transition: ensuring actions to mitigating and adapting to climate change are equitable. ',
             'Suggestions for mitigation - actions - e.g. ambitious climate/carbon emission targets, carbon taxes, levies, investment for green infrastructure',
             'Sees importance of both mitigation and adaptation.',
             'Bonus points for knowing Local Territorial Authorities under the Resource Management Act are meant to adapt not mitigate.'
           ]}
-          badAnswers={[
+          lowScoringAnswers={[
             'Laissez-faire attitude',
             'Doesn’t understand need for just transition.',
             'Talks about just transition in terms of the rich not being “unfairly disadvantaged”',
