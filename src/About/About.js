@@ -59,7 +59,7 @@ export const About = () => (
       <p>
         We hope you find this resource helpful. If you wish to provide us with
         your feedback, our email is{' '}
-        <a href="mailto auckland@generationzero.org.nz">
+        <a href="mailto: auckland@generationzero.org.nz">
           auckland@generationzero.org.nz
         </a>
         .
