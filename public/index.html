@@ -34,9 +34,36 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
     <title>Auckland Elections</title>
+    <meta property="og:image" content="images/WhoWIllYouVoteFor.svg"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:title"  content="Auckland Election Scorecards"/>
+    <meta property="og:description" content="We sat down and grilled each Auckland Council candidate one by one.">
+    <meta property="og:url"  content="http://aucklandelections.co.nz"/>
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+
+    <script>
+      window.fbAsyncInit = function() {
+        FB.init({
+          appId      : '730627707396118',
+          cookie     : true,
+          xfbml      : true,
+          version    : 'v4.0'
+        });
+
+        FB.AppEvents.logPageView();
+
+      };
+
+      (function(d, s, id){
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {return;}
+        js = d.createElement(s); js.id = id;
+        js.src = "https://connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+    </script>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
