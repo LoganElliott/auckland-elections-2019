@@ -23,8 +23,7 @@ const styles = {
 export const About = () => (
   <div style={styles.wrapper}>
     <div style={styles.innerWrapper}>
-      <h1>About us</h1>
-      <h2>Why we do the scorecards</h2>
+      <h1>Why we do the scorecards</h1>
 
       <p>
         The people who are elected will be making decisions that affect our
@@ -70,6 +69,14 @@ export const About = () => (
       </p>
 
       <p>Ngā mihi, Generation Zero Auckland</p>
+
+      <p>
+        If you've found this site useful please{' '}
+        <a href="https://www.generationzero.org/auckland-election-donation">
+          Donate
+        </a>{' '}
+        as it helps us share with others!
+      </p>
     </div>
   </div>
 );

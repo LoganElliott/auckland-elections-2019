@@ -138,7 +138,7 @@ const PageMenu = ({ updateAddress }) => {
         <MenuItem onClick={() => handleClose(howWeScored)}>
           How we scored
         </MenuItem>
-        <MenuItem onClick={() => handleClose(about)}>About us</MenuItem>
+        <MenuItem onClick={() => handleClose(about)}>About</MenuItem>
         <MenuItem onClick={() => handleClose(thanks)}>Thanks!</MenuItem>
       </Menu>
     </>

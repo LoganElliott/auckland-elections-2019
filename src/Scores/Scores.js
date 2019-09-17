@@ -90,6 +90,13 @@ export function Scores() {
               localBoard={votingInformation.localBoard}
               subdivision={votingInformation.subdivision}
             />
+            <p>
+              If you've found this site useful please{' '}
+              <a href="https://www.generationzero.org/auckland-election-donation">
+                Donate
+              </a>{' '}
+              as it helps us share with others!
+            </p>
           </div>
         );
       }}
