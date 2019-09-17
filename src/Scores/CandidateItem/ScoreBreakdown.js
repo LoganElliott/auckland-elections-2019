@@ -10,6 +10,7 @@ import history from '../../history';
 import { QuestionTabs } from './QuestionTabs';
 import { addCandidateToQuery, removeCandidateFromQuery } from '../utilities';
 import { candidateType } from '../constants';
+import { fireGaEventsOnCandidateSelect } from './fireGaEventsOnCandidateSelect';
 
 const styles = {
   button: {
@@ -96,6 +97,7 @@ export const ScoreBreakdown = ({ candidate, colour, type }) => {
   const handleOpen = () => {
     addCandidateToQuery(type, candidate.surname);
     setOpen(true);
+    fireGaEventsOnCandidateSelect(type, candidate);
   };
 
   const handleClose = () => {

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Route, Router } from 'react-router-dom';
+import ReactGA from 'react-ga';
 import qs from 'qs';
 
 import history from './history';
@@ -13,6 +14,7 @@ import { MyContext } from './MyContext';
 import { about, howWeScored, root, scores, thanks } from './Contants/routes';
 import { HowWeScored } from './HowWeScored/HowWeScored';
 import { Thanks } from './Thanks';
+import { fireGaEventsOnGetVotingInformation } from './Scores/CandidateItem/fireGaEventsOnCandidateSelect';
 
 class App extends Component {
   constructor(props) {
@@ -29,9 +31,19 @@ class App extends Component {
     this.updateVotingInformation = votingInformation =>
       this.setState({ votingInformation });
 
+    ReactGA.initialize('UA-148075786-1');
+    ReactGA.pageview(window.location.pathname + window.location.search);
+
     const votingInformation = history.location.search
       ? qs.parse(decodeURI(history.location.search.substring(1)))
       : null;
+
+    if (votingInformation) {
+      fireGaEventsOnGetVotingInformation(
+        votingInformation,
+        'Search - onPageLoad'
+      );
+    }
 
     this.state = {
       address: null,

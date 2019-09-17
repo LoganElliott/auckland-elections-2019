@@ -12,6 +12,7 @@ import { QuestionTabs } from './QuestionTabs';
 import './SmallBreakDown.css';
 import { addCandidateToQuery, removeCandidateFromQuery } from '../utilities';
 import { candidateType } from '../constants';
+import { fireGaEventsOnCandidateSelect } from './fireGaEventsOnCandidateSelect';
 
 const styles = {
   quoteWrapper: {
@@ -64,6 +65,7 @@ export const SmallBreakdown = ({ candidate, type, colour }) => {
         <ExpansionPanelSummary
           expandIcon={<ExpandMoreIcon />}
           id="panel1a-header"
+          onClick={() => fireGaEventsOnCandidateSelect(type, candidate)}
         >
           SCORE BREAKDOWN
         </ExpansionPanelSummary>

@@ -6,6 +6,7 @@ import history from './history';
 import { MyContext } from './MyContext';
 import { getVotingInformation } from './getVotingInformation';
 import { searchEndpoint } from './Contants/endpoints';
+import { fireGaEventsOnGetVotingInformation } from './Scores/CandidateItem/fireGaEventsOnCandidateSelect';
 
 const styles = {
   searchBox: {
@@ -82,6 +83,12 @@ export class AddressSearcher extends Component {
                     value.value
                   );
                   updateVotingInformation(votingInformation);
+
+                  fireGaEventsOnGetVotingInformation(
+                    votingInformation,
+                    'Search - enterAddress'
+                  );
+
                   let query = `ward=${votingInformation.ward}&localBoard=${votingInformation.localBoard}`;
                   if (votingInformation.subdivision) {
                     query = query.concat(
