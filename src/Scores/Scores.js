@@ -42,7 +42,9 @@ const SubHeading = ({ ward, localBoard, subdivision }) => (
         Local Board: <span style={styles.localBoard}> {localBoard}</span>
       </div>
       {subdivision ? (
-        <div style={{ fontSize: '30px' }}>Subdivision: {subdivision}</div>
+        <div style={{ fontSize: '30px' }}>
+          Subdivision: <span style={styles.localBoard}> {subdivision}</span>
+        </div>
       ) : null}
       <div style={{ fontSize: '16px', fontFamily: 'Roboto' }}>
         We sat down and grilled each Auckland Council candidate one by one. Here

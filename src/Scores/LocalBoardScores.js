@@ -65,7 +65,12 @@ export class LocalBoardScores extends Component {
             SCORES FOR LOCAL BOARD
             <span style={styles.localBoard}> ({localBoard})</span>
           </div>
-          {subdivision ? <div>({subdivision})</div> : null}
+          {subdivision ? (
+            <div>
+              <span>SUBDIVISION</span>{' '}
+              <span style={styles.localBoard}>({subdivision})</span>
+            </div>
+          ) : null}
           <CandidateItems
             isLoading={this.state.isLoading}
             type={candidateType.LOCAL_BOARD}

@@ -49,8 +49,7 @@ export class CouncillorScores extends Component {
       <div>
         <ScoreHeading>
           <div>
-            SCORES FOR <span style={styles.councillor}>COUNCILLOR</span> ({ward}
-            )
+            SCORES FOR <span style={styles.councillor}>WARD</span> ({ward})
           </div>
           <CandidateItems
             isLoading={this.state.isLoading}
