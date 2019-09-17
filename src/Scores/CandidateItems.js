@@ -14,7 +14,7 @@ export const CandidateItems = ({ isLoading, candidates, colour, type }) => {
   if (isLoading) {
     return <CircularProgress size={200} />;
   }
-  const firstFourCandidates = candidates.slice(0, 3);
+  const firstFourCandidates = candidates.slice(0, 4);
 
   const remainingCandidates = candidates.slice(4);
 

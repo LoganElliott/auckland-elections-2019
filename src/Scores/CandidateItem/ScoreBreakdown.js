@@ -122,7 +122,9 @@ export const ScoreBreakdown = ({ candidate, colour, type }) => {
               <div
                 style={{
                   ...styles.quoteWrapper,
-                  backgroundColor: 'rgba(255,255,255,0.2)'
+                  backgroundColor: 'rgba(255,255,255,0.2)',
+                  margin: '12px 0',
+                  padding: '8px'
                 }}
               >
                 <div style={styles.quote}>{candidate.candidateSummary}</div>

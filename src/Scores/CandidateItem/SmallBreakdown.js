@@ -40,7 +40,8 @@ export const SmallBreakdown = ({ candidate, type, colour }) => {
             style={{
               ...styles.quoteWrapper,
               backgroundColor: 'rgba(255,255,255,0.2)',
-              margin: '15px'
+              margin: '12px 0',
+              padding: '8px'
             }}
           >
             <div style={styles.quote}>{candidate.candidateSummary}</div>
