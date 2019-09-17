@@ -32,7 +32,8 @@ export const CandidateItems = ({ isLoading, candidates, colour, type }) => {
   if (
     remainingCandidates.some(
       candidate => `${type}-${candidate.surname}` === query.candidate
-    )
+    ) &&
+    !isExpanded
   ) {
     setIsExpanded(true);
   }

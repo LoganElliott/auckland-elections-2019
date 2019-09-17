@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { Fragment } from 'react';
+import { Redirect } from 'react-router-dom';
 import { MyContext } from '../MyContext';
 import { MayoralScores } from './MayoralScores';
 import { CouncillorScores } from './CouncillorScores';
 import { LocalBoardScores } from './LocalBoardScores';
 import { councillorColour, localBoardColour, mayoralColour } from './constants';
-import history from '../history';
+import { root } from '../Contants/routes';
 
 const styles = {
   wrapper: {
@@ -25,6 +26,31 @@ const styles = {
   }
 };
 
+const renderVotingInfo = (ward, localBoard, subdivision) => {
+  return (
+    <Fragment>
+      {ward || localBoard || subdivision ? (
+        <div style={{ fontSize: '26px' }}>VOTING AREA</div>
+      ) : null}
+      {ward ? (
+        <div style={{ fontSize: '50px' }}>
+          Ward: <span style={styles.councillor}>{ward}</span>
+        </div>
+      ) : null}
+      {localBoard ? (
+        <div style={{ fontSize: '40px' }}>
+          Local Board: <span style={styles.localBoard}> {localBoard}</span>
+        </div>
+      ) : null}
+      {subdivision ? (
+        <div style={{ fontSize: '30px' }}>
+          Subdivision: <span style={styles.localBoard}> {subdivision}</span>
+        </div>
+      ) : null}
+    </Fragment>
+  );
+};
+
 const SubHeading = ({ ward, localBoard, subdivision }) => (
   <div style={styles.header}>
     <div
@@ -34,18 +60,7 @@ const SubHeading = ({ ward, localBoard, subdivision }) => (
         fontWeight: 'bold'
       }}
     >
-      <div style={{ fontSize: '26px' }}>VOTING AREA</div>
-      <div style={{ fontSize: '50px' }}>
-        Ward: <span style={styles.councillor}>{ward}</span>
-      </div>
-      <div style={{ fontSize: '40px' }}>
-        Local Board: <span style={styles.localBoard}> {localBoard}</span>
-      </div>
-      {subdivision ? (
-        <div style={{ fontSize: '30px' }}>
-          Subdivision: <span style={styles.localBoard}> {subdivision}</span>
-        </div>
-      ) : null}
+      {renderVotingInfo(ward, localBoard, subdivision)}
       <div style={{ fontSize: '16px', fontFamily: 'Roboto' }}>
         We sat down and grilled each Auckland Council candidate one by one. Here
         are the results.
@@ -59,10 +74,9 @@ export function Scores() {
     <MyContext.Consumer>
       {({ votingInformation }) => {
         if (!votingInformation) {
-          history.push({
-            path: '/'
-          });
+          return <Redirect to={root} />;
         }
+
         return (
           <div style={styles.wrapper}>
             <SubHeading

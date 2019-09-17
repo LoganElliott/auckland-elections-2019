@@ -8,7 +8,11 @@ import { CandidateInfo } from './BigCandidateItem';
 import history from '../../history';
 
 import { QuestionTabs } from './QuestionTabs';
-import { addCandidateToQuery, removeCandidateFromQuery } from '../utilities';
+import {
+  addCandidateToQuery,
+  removeCandidateFromQuery,
+  Sharing
+} from '../utilities';
 import { candidateType } from '../constants';
 import { fireGaEventsOnCandidateSelect } from './fireGaEventsOnCandidateSelect';
 
@@ -64,7 +68,7 @@ const useStyles = makeStyles(theme => ({
   paper: {
     position: 'absolute',
     width: 1100,
-    height: 600,
+    height: 800,
     backgroundColor: theme.palette.background.paper,
     boxShadow: theme.shadows[5]
   }
@@ -133,6 +137,7 @@ export const ScoreBreakdown = ({ candidate, colour, type }) => {
                 <div>MARKERS' CONSENSUS</div>
               </div>
             ) : null}
+            <Sharing candidate={candidate} />
           </div>
           <QuestionTabs
             candidate={candidate}

@@ -63,7 +63,10 @@ export class LocalBoardScores extends Component {
         <ScoreHeading>
           <div>
             SCORES FOR LOCAL BOARD
-            <span style={styles.localBoard}> ({localBoard})</span>
+            <span style={styles.localBoard}>
+              {' '}
+              ({localBoard ? localBoard : 'No Local Board found'})
+            </span>
           </div>
           {subdivision ? (
             <div>
