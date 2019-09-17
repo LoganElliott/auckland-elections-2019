@@ -75,7 +75,7 @@ const PageMenu = ({ updateAddress }) => {
         aria-haspopup="true"
         onClick={handleClick}
       >
-        <Icon>menu</Icon>
+        <Icon color="secondary">menu</Icon>
       </IconButton>
       <Menu
         id="simple-menu"

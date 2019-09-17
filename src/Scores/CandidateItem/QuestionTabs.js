@@ -13,7 +13,6 @@ import * as PropTypes from 'prop-types';
 
 import './tabs.css';
 import {
-  CompetencyQuestion,
   environmentQuestions,
   localBoardEnvironmentQuestions,
   localBoardTransportQuestions,
@@ -21,7 +20,7 @@ import {
   transportQuestions,
   urbanFormQuestions
 } from '../../Contants/questions';
-import { QuestionScore } from './QuestionScore';
+import { TotalScore } from './TotalScore';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -132,17 +131,7 @@ export const QuestionTabs = ({ candidate, isLocalBoard }) => {
         />
       </TabPanel>
       <TabPanel value={value} index={3}>
-        <SectionScores
-          questions={CompetencyQuestion}
-          sectionNumber={4}
-          sectionTitle={'Competence'}
-          candidate={candidate}
-        />
-        <QuestionScore
-          key={2}
-          question={'Competence Rating'}
-          score={candidate.competenceRating}
-        />
+        <TotalScore sectionTitle={'Competence'} score={candidate[`s4Score`]} />
       </TabPanel>
     </div>
   );

@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import * as PropTypes from 'prop-types';
-import CircularProgress from '@material-ui/core/CircularProgress';
 
 import { getScores } from './getScores';
-import { CandidateItem } from './CandidateItem/CandiateItem';
 import { candidateType, councillorColour } from './constants';
 import { ScoreHeading } from './CandidateItem/ScoreHeading';
 import { scrollToCandidate } from './utilities';
+import { CandidateItems } from './CandidateItems';
 
 const styles = {
   councillor: {
@@ -53,18 +52,12 @@ export class CouncillorScores extends Component {
             SCORES FOR <span style={styles.councillor}>COUNCILLOR</span> ({ward}
             )
           </div>
-          {!this.state.isLoading ? (
-            this.state.wardCandidates.map(candidate => (
-              <CandidateItem
-                candidate={candidate}
-                key={candidate.firstName + candidate.surname}
-                colour={councillorColour}
-                type={candidateType.WARD}
-              />
-            ))
-          ) : (
-            <CircularProgress size={200} />
-          )}
+          <CandidateItems
+            isLoading={this.state.isLoading}
+            type={candidateType.WARD}
+            colour={councillorColour}
+            candidates={this.state.wardCandidates}
+          />
         </ScoreHeading>
       </div>
     );

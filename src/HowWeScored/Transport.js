@@ -31,7 +31,11 @@ export const Transport = () => (
       </ExpansionPanelSummary>
       <ExpansionPanelDetails>
         <div>
-          <img src={ATAP} style={{ width: '100%', maxWidth: '800px' }} />
+          <img
+            src={ATAP}
+            style={{ width: '100%', maxWidth: '800px' }}
+            atl="ATAP report"
+          />
           <a
             href="https://www.transport.govt.nz/assets/Uploads/Land/Documents/7bbf7cd0db/ATAP2018.pdf"
             aria-label="Image source"
@@ -39,7 +43,11 @@ export const Transport = () => (
           >
             Source
           </a>
-          <img src={Renewals} style={{ width: '100%', maxWidth: '800px' }} />
+          <img
+            src={Renewals}
+            style={{ width: '100%', maxWidth: '800px' }}
+            atl="Renewals"
+          />
           <a
             href="https://www.transport.govt.nz/assets/Uploads/Land/Documents/26f5ef6cfa/ATAP-MOR-Report.pdf"
             aria-label="Image source"

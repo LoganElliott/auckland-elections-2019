@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 
 import { getScores } from './getScores';
-import { CandidateItem } from './CandidateItem/CandiateItem';
 import { candidateType, mayoralColour } from './constants';
 import { ScoreHeading } from './CandidateItem/ScoreHeading';
-import { CircularProgress } from '@material-ui/core';
 import { scrollToCandidate } from './utilities';
+import { CandidateItems } from './CandidateItems';
 
 const styles = {
   mayor: {
@@ -44,18 +43,12 @@ export class MayoralScores extends Component {
           <div>
             SCORES FOR <span style={styles.mayor}>MAYOR</span>
           </div>
-          {!this.state.isLoading ? (
-            this.state.mayoralCandidates.map(candidate => (
-              <CandidateItem
-                candidate={candidate}
-                key={candidate.firstName + candidate.surname}
-                colour={mayoralColour}
-                type={candidateType.MAYOR}
-              />
-            ))
-          ) : (
-            <CircularProgress size={200} />
-          )}
+          <CandidateItems
+            isLoading={this.state.isLoading}
+            type={candidateType.MAYOR}
+            colour={mayoralColour}
+            candidates={this.state.mayoralCandidates}
+          />
         </ScoreHeading>
       </div>
     );

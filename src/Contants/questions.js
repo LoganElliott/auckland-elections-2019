@@ -31,15 +31,12 @@ export const environmentQuestions = [
   'Open spaces and streetscapes',
   'Improving pedestrian environment',
   'Reducing consumption and waste',
-  'Keeping to 1.5 and the climate emergency'
+  'Keeping to 1.5 and the climate emergency',
+  'Just transition for mitigation and adaptation'
 ];
 
 export const localBoardEnvironmentQuestions = [
   'Open Spaces and streetscapes',
   'Keeping to 1.5 and the climate emergency',
   'Vision for Climate Zero Auckland'
-];
-
-export const CompetencyQuestion = [
-  'Just transition for mitigation and adaptation'
 ];

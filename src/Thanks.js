@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { localBoardColour } from './Scores/constants';
 
 const styles = {
@@ -19,8 +19,8 @@ export const Thanks = () => (
     </div>
     <div style={styles.item}>
       Thank you to all our volunteers, especially those who interviewed
-      candidates (more than 30 hours worth!), those who marked, those who
-      moderated and those who gave support however they could
+      candidates, those who marked, those who moderated and those who gave
+      support however they could
     </div>
     <div style={styles.item}>
       Thank you to all our donors, without you we wouldn't be able to get the
@@ -30,7 +30,8 @@ export const Thanks = () => (
       Thank you to our designers, Bela, Finn and Rosie
     </div>
     <div style={styles.item}>
-      Thank you to our web developer Logan for making this website
+      Thank you to our web developer Logan and backend developer Asher for
+      making this website
     </div>
 
     <a href="mailto: auckland@generationzero.org.nz">

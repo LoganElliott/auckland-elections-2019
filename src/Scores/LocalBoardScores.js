@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import CircularProgress from '@material-ui/core/CircularProgress';
 
 import { ScoreHeading } from './CandidateItem/ScoreHeading';
 import * as PropTypes from 'prop-types';
 import { getScores } from './getScores';
-import { CandidateItem } from './CandidateItem/CandiateItem';
 import { candidateType, localBoardColour } from './constants';
 import { scrollToCandidate } from './utilities';
+import { CandidateItems } from './CandidateItems';
 
 const styles = {
   localBoard: {
@@ -67,18 +66,12 @@ export class LocalBoardScores extends Component {
             <span style={styles.localBoard}> ({localBoard})</span>
           </div>
           {subdivision ? <div>({subdivision})</div> : null}
-          {!this.state.isLoading ? (
-            this.state.localBoardCandidates.map(candidate => (
-              <CandidateItem
-                candidate={candidate}
-                key={candidate.firstName + candidate.surname}
-                colour={localBoardColour}
-                type={candidateType.LOCAL_BOARD}
-              />
-            ))
-          ) : (
-            <CircularProgress size={200} />
-          )}
+          <CandidateItems
+            isLoading={this.state.isLoading}
+            type={candidateType.LOCAL_BOARD}
+            colour={localBoardColour}
+            candidates={this.state.localBoardCandidates}
+          />
         </ScoreHeading>
       </div>
     );

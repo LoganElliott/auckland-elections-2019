@@ -18,35 +18,8 @@ export const Competency = () => (
       }}
     >
       <div style={{ margin: '8px' }}>{competence}</div>
-      <h1>Competency (15%)</h1>
+      <h1>Competency (10%)</h1>
     </div>
-    <ExpansionPanel>
-      <ExpansionPanelSummary
-        expandIcon={<ExpandMoreIcon />}
-        id="panel1a-header"
-      >
-        Question 15
-      </ExpansionPanelSummary>
-      <ExpansionPanelDetails>
-        <Question
-          preamble="Our most marginalised communities in Auckland such as Maori, Pasifika, and low-income groups are disproportionately affected by the adverse consequences of climate change."
-          question="What is your vision for ensuring a just transition for adaptation and mitigation regarding climate change?"
-          goodAnswers={[
-            'Clear understanding of just transition: ensuring actions to mitigating and adapting to climate change are equitable. ',
-            'Suggestions for mitigation - actions - e.g. ambitious climate/carbon emission targets, carbon taxes, levies, investment for green infrastructure',
-            'Sees importance of both mitigation and adaptation.',
-            'Bonus points for knowing Local Territorial Authorities under the Resource Management Act are meant to adapt not mitigate.'
-          ]}
-          badAnswers={[
-            'Laissez-faire attitude',
-            'Doesn’t understand need for just transition.',
-            'Talks about just transition in terms of the rich not being “unfairly disadvantaged”',
-            'Stick to the status quo',
-            'Only addresses adaptation not mitigation (or opposite)'
-          ]}
-        />
-      </ExpansionPanelDetails>
-    </ExpansionPanel>
     <ExpansionPanel>
       <ExpansionPanelSummary
         expandIcon={<ExpandMoreIcon />}
