@@ -106,6 +106,7 @@ export const QuestionTabs = ({ candidate, isLocalBoard }) => {
           sectionTitle={'Transport Score'}
           candidate={candidate}
           isLocalBoard={isLocalBoard}
+          indexStart={1}
         />
       </TabPanel>
       <TabPanel value={value} index={1}>
@@ -117,6 +118,11 @@ export const QuestionTabs = ({ candidate, isLocalBoard }) => {
           sectionTitle={'Urban Form Score'}
           candidate={candidate}
           isLocalBoard={isLocalBoard}
+          indexStart={
+            isLocalBoard
+              ? localBoardTransportQuestions.length
+              : transportQuestions.length
+          }
         />
       </TabPanel>
       <TabPanel value={value} index={2}>
@@ -128,6 +134,11 @@ export const QuestionTabs = ({ candidate, isLocalBoard }) => {
           sectionTitle={'Environment Score'}
           candidate={candidate}
           isLocalBoard={isLocalBoard}
+          indexStart={
+            isLocalBoard
+              ? localBoardUrbanFormQuestions.length
+              : urbanFormQuestions.length
+          }
         />
       </TabPanel>
       <TabPanel value={value} index={3}>

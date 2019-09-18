@@ -17,7 +17,8 @@ export const SectionScores = ({
   sectionTitle,
   questions,
   candidate,
-  isLocalBoard
+  isLocalBoard,
+  indexStart
 }) => (
   <div style={styles.scores} className="sectionScores">
     <TotalScore
@@ -26,9 +27,9 @@ export const SectionScores = ({
     />
     {questions.map((question, index) => (
       <QuestionScore
-        key={index + 1}
+        key={index}
         question={question}
-        score={candidate[`q${index + 1}`]}
+        score={candidate[`q${index + indexStart}`]}
         isLocalBoard={isLocalBoard}
       />
     ))}
