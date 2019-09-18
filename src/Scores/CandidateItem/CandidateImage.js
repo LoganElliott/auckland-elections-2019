@@ -4,15 +4,11 @@ import { candidateImagesRoute } from '../../Contants/routes';
 
 export const CandidateImage = ({ candidate }) => {
   const candidateImageUrl = () => {
-    const lowerCaseFirstName = candidate.firstName.toLowerCase();
-    const firstName =
-      lowerCaseFirstName.charAt(0).toUpperCase() + lowerCaseFirstName.slice(1);
+    const firstName = candidate.firstName.toLowerCase().replace(/[^a-z]+/, '');
 
-    const lowerCaseLastName = candidate.surname.toLowerCase();
-    const lastName =
-      lowerCaseLastName.charAt(0).toUpperCase() + lowerCaseLastName.slice(1);
+    const lastName = candidate.surname.toLowerCase().replace(/[^a-z]+/, '');
 
-    return `${firstName}-${lastName}.jpg`;
+    return `${firstName}${lastName}.jpg`;
   };
 
   return (
