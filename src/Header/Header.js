@@ -5,6 +5,19 @@ import IconButton from '@material-ui/core/IconButton';
 import Icon from '@material-ui/core/Icon';
 import { useMediaQuery } from 'react-responsive';
 
+import {
+  FacebookShareButton,
+  LinkedinShareButton,
+  TwitterShareButton,
+  RedditShareButton,
+  EmailShareButton,
+  FacebookIcon,
+  TwitterIcon,
+  LinkedinIcon,
+  RedditIcon,
+  EmailIcon
+} from 'react-share';
+
 import history from '../history';
 
 import { Colours } from '../Contants/Colours';
@@ -55,6 +68,36 @@ const styles = {
   }
 };
 
+const Sharing = () => {
+  const title =
+    'See how Generation Zero scored your representatives on Transport, Urban From and the environment #aucklandelections';
+  const shareUrl = 'https://aucklandelections.co.nz';
+  return (
+    <div style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap' }}>
+      <FacebookShareButton url={shareUrl} quote={title}>
+        <FacebookIcon size={32} round />
+      </FacebookShareButton>
+      <TwitterShareButton url={shareUrl} title={title}>
+        <TwitterIcon size={32} round />
+      </TwitterShareButton>
+      <LinkedinShareButton url={shareUrl} windowWidth={750} windowHeight={600}>
+        <LinkedinIcon size={32} round />
+      </LinkedinShareButton>
+      <RedditShareButton
+        url={shareUrl}
+        title={title}
+        windowWidth={660}
+        windowHeight={460}
+      >
+        <RedditIcon size={32} round />
+      </RedditShareButton>
+      <EmailShareButton url={shareUrl} subject={title} body="Go to">
+        <EmailIcon size={32} round />
+      </EmailShareButton>
+    </div>
+  );
+};
+
 const PageMenu = ({ updateAddress }) => {
   const [anchorEl, setAnchorEl] = React.useState(null);
 
@@ -95,7 +138,7 @@ const PageMenu = ({ updateAddress }) => {
         <MenuItem onClick={() => handleClose(howWeScored)}>
           How we scored
         </MenuItem>
-        <MenuItem onClick={() => handleClose(about)}>About us</MenuItem>
+        <MenuItem onClick={() => handleClose(about)}>About</MenuItem>
         <MenuItem onClick={() => handleClose(thanks)}>Thanks!</MenuItem>
       </Menu>
     </>
@@ -106,6 +149,7 @@ const SmallHeader = ({ address, updateAddress }) => (
   <div style={styles.wrapper}>
     <div style={styles.smallHeading}>
       <GzLogo style={styles.logo} />
+      <Sharing />
       <PageMenu updateAddress={updateAddress} />
     </div>
     {address || history.location.pathname.substring(1).length > 0 ? (
@@ -117,6 +161,7 @@ const SmallHeader = ({ address, updateAddress }) => (
 const BigHeader = ({ address, updateAddress }) => (
   <div style={styles.wrapper}>
     <GzLogo style={styles.logo} />
+    <Sharing />
     {address || history.location.pathname.substring(1).length > 0 ? (
       <AddressSearcher address={address} />
     ) : null}

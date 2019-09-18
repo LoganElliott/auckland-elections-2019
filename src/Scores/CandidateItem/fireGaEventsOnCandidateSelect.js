@@ -1,9 +1,10 @@
 import ReactGA from 'react-ga';
 
 export const fireGaEventsOnCandidateSelect = (type, candidate) => {
+  const name = `${candidate.surname.trim()}_${candidate.firstName.trim()}`;
   ReactGA.event({
     category: `Candidate-Select`,
-    action: `${type}_${candidate.surname.trim()}_${candidate.firstName.trim}`
+    action: `${type}_${name}`
   });
 };
 

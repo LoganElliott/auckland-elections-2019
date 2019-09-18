@@ -32,7 +32,8 @@ export const CandidateItems = ({ isLoading, candidates, colour, type }) => {
   if (
     remainingCandidates.some(
       candidate => `${type}-${candidate.surname}` === query.candidate
-    )
+    ) &&
+    !isExpanded
   ) {
     setIsExpanded(true);
   }
@@ -59,7 +60,8 @@ export const CandidateItems = ({ isLoading, candidates, colour, type }) => {
             style={{
               display: 'flex',
               flexDirection: 'column',
-              backgroundColor: 'rgb(229, 229, 229)'
+              backgroundColor: 'rgb(229, 229, 229)',
+              alignItems: 'center'
             }}
           >
             {remainingCandidates.map(candidate => (

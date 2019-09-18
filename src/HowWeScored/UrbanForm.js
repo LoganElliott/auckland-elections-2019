@@ -37,15 +37,15 @@ export const UrbanForm = () => (
             'Community-focused housing',
             'Supports enabling papakāinga (Māori housing model built around community and marae)',
             'Mentions known atomic family housing models',
-            'Supports compact city model and the 70/40 development ',
+            'Supports compact city model and the 70/40 development',
             'Demonstrates urgency that council needs to do more',
             'Talks about ensuring quality (while still being fully supportive of density)'
           ]}
           lowScoringAnswers={[
-            'Sprawl - extending Auckland housing beyond the existing regional limits',
-            'Remove rural urban boundary',
-            'Nimby - “ok to densify city centre, but nowhere else”',
-            'Bad reference to Resource Management Act reforms e.g. removing environmental protections'
+            'Endorses sprawl',
+            'Wishes to remove the rural-urban boundary',
+            'Provides a NIMBY response - “ok to densify city centre, but nowhere else”',
+            'Wishes to reform the Resource Management Act in ways that Generation Zero does not endorse e.g. removing environmental protections'
           ]}
         />
       </ExpansionPanelDetails>
@@ -62,15 +62,15 @@ export const UrbanForm = () => (
           preamble="The government has committed to building 50,000 homes in Auckland as part of the Kiwibuild programme."
           question="How can Auckland Council and Council-Controlled-Organisations enable/accelerate Kiwibuild within Auckland?"
           highScoringAnswers={[
-            'Increasing density',
+            'Enable/encourage increasing density',
             'Rezoning to favour Kiwibuild developments',
             'Housing and Urban Development Authority',
             'Emphasises the need for local government and central government to work together and strong working relationship'
           ]}
           lowScoringAnswers={[
             'Dismisses the work of Kiwibuild',
-            'Doesn’t think we need to build more houses/ doesn’t recognise the problem. ',
-            'Talks about single dwelling and/or large houses'
+            'Doesn’t think we need to build more houses/doesn’t recognise the housing situation in Auckland as a problem',
+            'Talks about single dwelling and/or large houses as a desirable option for housing'
           ]}
         />
       </ExpansionPanelDetails>
@@ -90,16 +90,13 @@ export const UrbanForm = () => (
             'Have all public buildings require green features',
             'Green star put in the Unitary Plan/Building Code',
             'Change legislation to make it include all private buildings',
-            'Developer benefits (contributions, consenting costs) if they include in their buildings?',
+            'Developer benefits (contributions, consenting costs) if they include in their buildings',
             'Mentions green building certification programme'
           ]}
           lowScoringAnswers={[
-            'Not needed',
-            'Doesn’t understand',
-            'Thinks cost is too high',
-            'Need more research/information on whether green features are the best way for rate-payers money to be spent',
-            'Too hard - central govt’s job',
-            'Leaves this to the construction industry'
+            'Green features in construction are not needed or too costly',
+            'Believes more research/information is needed to determine whether green features are the best way for rate-payers money to be spent',
+            'Wishes to leave this to the construction industry or to central government'
           ]}
         />
       </ExpansionPanelDetails>

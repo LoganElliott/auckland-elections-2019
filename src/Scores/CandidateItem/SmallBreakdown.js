@@ -10,7 +10,11 @@ import history from '../../history';
 import { QuestionTabs } from './QuestionTabs';
 
 import './SmallBreakDown.css';
-import { addCandidateToQuery, removeCandidateFromQuery } from '../utilities';
+import {
+  addCandidateToQuery,
+  removeCandidateFromQuery,
+  Sharing
+} from '../utilities';
 import { candidateType } from '../constants';
 import { fireGaEventsOnCandidateSelect } from './fireGaEventsOnCandidateSelect';
 
@@ -48,6 +52,7 @@ export const SmallBreakdown = ({ candidate, type, colour }) => {
             <div style={styles.quote}>{candidate.candidateSummary}</div>
             <div>MARKERS' CONSENSUS</div>
           </div>
+          <Sharing candidate={candidate} />
         </div>
       ) : null}
       <ExpansionPanel
