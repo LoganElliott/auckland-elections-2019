@@ -5,7 +5,7 @@ const styles = {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    color: 'black',
+    color: 'black'
   },
   scoreWrapper: {
     borderRadius: '50%',
@@ -24,11 +24,14 @@ const styles = {
   }
 };
 
-export const OverallGrade = ({ overallGrade }) => (
+const reasonForNotScore = noResponse =>
+  noResponse ? 'No Response' : 'Declined participation';
+
+export const OverallGrade = ({ overallGrade, noResponse }) => (
   <div style={styles.scoreSection}>
     <div style={styles.scoreWrapper}>
       <div style={styles.score}>{overallGrade || '😞'}</div>
     </div>
-    {overallGrade ? null : 'Declined participation'}
+    {overallGrade ? null : reasonForNotScore(noResponse)}
   </div>
 );

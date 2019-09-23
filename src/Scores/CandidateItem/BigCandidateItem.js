@@ -51,7 +51,10 @@ export const BigCandidateItem = ({ candidate, colour, type }) => (
       {candidate.overallGrade ? (
         <ScoreBreakdown candidate={candidate} colour={colour} type={type} />
       ) : null}
-      <OverallGrade overallGrade={candidate.overallGrade} />
+      <OverallGrade
+        overallGrade={candidate.overallGrade}
+        noResponse={candidate.noResponse}
+      />
     </div>
   </div>
 );

@@ -39,7 +39,10 @@ const styles = {
 const CandidateInfo = ({ candidate }) => (
   <div style={styles.info}>
     <CandidateImage candidate={candidate} />
-    <OverallGrade overallGrade={candidate.overallGrade} />
+    <OverallGrade
+      overallGrade={candidate.overallGrade}
+      noResponse={candidate.noResponse}
+    />
   </div>
 );
 
