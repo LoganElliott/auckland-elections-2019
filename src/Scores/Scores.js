@@ -6,6 +6,8 @@ import { CouncillorScores } from './CouncillorScores';
 import { LocalBoardScores } from './LocalBoardScores';
 import { councillorColour, localBoardColour, mayoralColour } from './constants';
 import { root } from '../Contants/routes';
+import Button from '@material-ui/core/Button';
+import ReactGA from 'react-ga';
 
 const styles = {
   wrapper: {
@@ -23,6 +25,11 @@ const styles = {
   },
   localBoard: {
     color: localBoardColour
+  },
+  howWeScored: {
+    display: 'flex',
+    justifyContent: 'center',
+    marginTop: '40px'
   }
 };
 
@@ -84,6 +91,21 @@ export function Scores() {
               localBoard={votingInformation.localBoard}
               subdivision={votingInformation.subdivision}
             />
+            <div style={styles.howWeScored}>
+              <Button
+                variant="contained"
+                color="primary"
+                href="https://aucklandelections.co.nz/how-we-scored"
+                onClick={() => {
+                  ReactGA.event({
+                    category: `HowWeScored`,
+                    action: `OnButtonClick`
+                  });
+                }}
+              >
+                SEE HOW WE SCORED CANDIDATES
+              </Button>
+            </div>
             <MayoralScores />
             <CouncillorScores ward={votingInformation.ward} />
             <LocalBoardScores
